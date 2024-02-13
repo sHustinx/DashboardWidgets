@@ -16,6 +16,8 @@ body {
 .heading {
   color: #585859;
   font-weight: normal;
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .recharts-legend-item-text{

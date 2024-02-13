@@ -84,7 +84,7 @@ class TimeLine extends PureComponent {
 
     render() {
         return (
-        <ResponsiveContainer width="50%" height="40%">
+        <ResponsiveContainer width="90%" height="75%">
             <AreaChart
                 width={500}
                 height={300}
@@ -134,7 +134,7 @@ const App = () => {
         <div>
 
             <div className="App">
-                <h1 className="heading">Biased decisions over time</h1>
+                <h2 className="heading">Biased decisions over time</h2>
                 <TimeLine/>
             </div>
         </div>
