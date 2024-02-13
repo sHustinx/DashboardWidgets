@@ -6,13 +6,36 @@ body {
 .App {
   height: 100vh;
   width: 100vw;
+  padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #585859;
+  font-weight: normal;
+}
+
+.recharts-legend-item-text{
+  color: #4b4c57 !important;
+}
+
+.recharts-tooltip-item{
+  color: #4b4c57 !important;
+}
+
+.recharts-tooltip-label{
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.recharts-default-legend{
+  padding-top: 20px !important;
+  padding-right: 20px !important;
+}
+
+.recharts-surface{
+  padding-right: 5px;
 }

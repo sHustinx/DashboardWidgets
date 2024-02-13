@@ -5,7 +5,18 @@ import mondaySdk from "monday-sdk-js";
 import "monday-ui-react-core/dist/main.css";
 //Explore more Monday React Components here: https://style.monday.com/
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    ResponsiveContainer,
+    AreaChart,
+    Area
+} from 'recharts';
 
 // Usage of mondaySDK example, for more information visit here: https://developer.monday.com/apps/docs/introduction-to-the-sdk/
 const monday = mondaySdk();
@@ -55,32 +66,47 @@ const data = [
     },
 ];
 
+const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+        console.log(payload);
+        return (
+            <div className="custom-tooltip">
+                <p className="label">{`${label}`}</p>
+                <p className="desc">Anything you want can be displayed here.</p>
+            </div>
+        );
+    }
+
+    return null;
+};
+
 class TimeLine extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="50%" height="40%">
-                <LineChart
-                    width={500}
-                    height={300}
-                    data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Line type="linear" dataKey="all decisions" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="linear" dataKey="biased decisions" stroke="#82ca9d" />
-                    <Line type="linear" dataKey="biased decisions w. negative outcome" stroke="#ca3c6d"/>
-                </LineChart>
-            </ResponsiveContainer>
+        <ResponsiveContainer width="50%" height="40%">
+            <AreaChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis label={{ value: 'decisions', angle: -90, position: 'insideLeft' }} />
+                <Tooltip/>
+                <Legend iconType={"circle"}/>
+                <Area type="linear" dataKey="all decisions" stroke="#c4def6" strokeDasharray="5 5" fill="#c4def6"
+                      activeDot={{ r: 8 }} />
+                <Area type="linear" dataKey="biased decisions" stroke="#85bde0" strokeDasharray="5 5" fill="#85bde0"/>
+                <Area type="linear" dataKey="biased decisions w. negative outcome" strokeDasharray="5 5" stroke="#5d93be" fill="#5d93be"/>
+            </AreaChart>
+        </ResponsiveContainer>
         );
     }
 }
@@ -106,9 +132,9 @@ const App = () => {
 
     return (
         <div>
-            <h1 className="heading">Timeline</h1>
-            <h1></h1>
+
             <div className="App">
+                <h1 className="heading">Biased decisions over time</h1>
                 <TimeLine/>
             </div>
         </div>
