@@ -134,7 +134,7 @@ const App = () => {
         <div>
 
             <div className="App">
-                <h2 className="heading">Biased decisions over time</h2>
+                {/*<h2 className="heading">Biased decisions over time</h2>*/}
                 <TimeLine/>
             </div>
         </div>
