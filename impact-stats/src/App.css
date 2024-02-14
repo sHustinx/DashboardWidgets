@@ -8,15 +8,16 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  margin: 3% 4%;
 }
 
 .big-num{
-  font-size: xxx-large;
+  font-size: xx-large;
   font-weight: bolder;
   color: #0f6d97;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .text-grey{
@@ -26,7 +27,19 @@ body {
 .spacer-50{
   height: 50px;
 }
+.spacer-25{
+  height: 25px;
+}
 
 .buffer-left-25{
   padding-left: 25px;
+}
+
+.align-center{
+  width: 90vw;
+  text-align: center;
+}
+
+.no-margin{
+  margin: 0;
 }
