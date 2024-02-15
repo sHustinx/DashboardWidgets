@@ -4,7 +4,6 @@ import "./App.css";
 import mondaySdk from "monday-sdk-js";
 import "monday-ui-react-core/dist/main.css";
 //Explore more Monday React Components here: https://style.monday.com/
-import AttentionBox from "monday-ui-react-core/dist/AttentionBox.js";
 import { Table, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, TableEmptyState, TableErrorState, TableAvatar, Label} from "monday-ui-react-core";
 
 // Usage of mondaySDK example, for more information visit here: https://developer.monday.com/apps/docs/introduction-to-the-sdk/
@@ -32,55 +31,57 @@ const App = () => {
 
   return (
     <div className="App">
-      {/*<AttentionBox*/}
-      {/*  title="Hello Monday Apps!"*/}
-      {/*  text={attentionBoxText}*/}
-      {/*  type="success"*/}
-      {/*/>*/}
-      <Table
+      <Table style={{
+        width: "auto"
+      }}
           columns={[
             {
-              id: 'sentOn',
+              id: 'd-date',
               loadingStateType: 'medium-text',
-              title: 'Sent on',
-              width: 150
+              title: 'Date',
+              width:120
             },
             {
-              id: 'subject',
-              loadingStateType: 'long-text',
-              title: 'Subject'
+              id: 'd-project',
+              loadingStateType: 'short-text',
+              title: 'Project',
+              width:100
             },
             {
-              id: 'sentBy',
-              infoContent: 'This is the sender',
-              loadingStateType: 'circle',
-              title: 'Sent by',
+              id: 'd-decision',
+              loadingStateType: 'medium-text',
+              title: 'Decision'
+            },
+            {
+              id: 'd-bias',
+              loadingStateType: 'medium-text',
+              title: 'Bias',
+              width: 200
+            },
+            {
+              id: 'd-reasoning',
+              loadingStateType: 'medium-text',
+              title: 'Reasoning',
               width: {
                 max: 200,
                 min: 120
               }
             },
             {
-              id: 'status',
-              infoContent: 'Info content for the status column',
+              id: 'd-outcome',
               loadingStateType: 'medium-text',
-              title: 'Status',
-              width: 150
-            },
-            {
-              id: 'emailsSent',
-              loadingStateType: 'medium-text',
-              title: 'Emails sent',
+              title: 'Outcome',
               width: 150
             }
           ]}
       >
         <TableHeader>
-          <TableHeaderCell title="Sent on" />
-          <TableHeaderCell title="Subject" />
-          <TableHeaderCell title="Sent by" />
-          <TableHeaderCell title="Status" />
-          <TableHeaderCell title="Emails sent" />
+          <TableHeaderCell title="Date" />
+          <TableHeaderCell title="Project" />
+          <TableHeaderCell title="Decision" />
+          <TableHeaderCell title="Suspected Bias" />
+          <TableHeaderCell title="Reasoning" />
+          <TableHeaderCell title="Outcome" />
         </TableHeader>
         <TableBody>
           <TableRow>
@@ -88,59 +89,242 @@ const App = () => {
               2020-01-01
             </TableCell>
             <TableCell>
-              Lorem ipsum dolor
+              123a
             </TableCell>
             <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
             </TableCell>
             <TableCell>
-              <Label
-                  color="positive"
-                  isAnimationDisabled
-                  text="Sent"
-              />
+              sunk-cost fallacy,
+              risk-seeking behaviour
             </TableCell>
             <TableCell>
-              100
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              2023-03-03
+              high previous
+              financial- and time-related investments
+
             </TableCell>
             <TableCell>
-              This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject
-            </TableCell>
-            <TableCell>
-            </TableCell>
-            <TableCell>
-              <Label
-                  color="positive"
-                  isAnimationDisabled
-                  text="Sent"
-              />
-            </TableCell>
-            <TableCell>
-              999
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
-              2022-02-02
+              2020-01-01
             </TableCell>
             <TableCell>
-              This is the subject
+              123a
             </TableCell>
             <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
             </TableCell>
             <TableCell>
-              <Label
-                  color="positive"
-                  isAnimationDisabled
-                  text="Sent"
-              />
+              sunk-cost fallacy,
+              risk-seeking behaviour
             </TableCell>
             <TableCell>
-              99
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              2020-01-01
+            </TableCell>
+            <TableCell>
+              123a
+            </TableCell>
+            <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
+            </TableCell>
+            <TableCell>
+              sunk-cost fallacy,
+              risk-seeking behaviour
+            </TableCell>
+            <TableCell>
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              2020-01-01
+            </TableCell>
+            <TableCell>
+              123a
+            </TableCell>
+            <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
+            </TableCell>
+            <TableCell>
+              sunk-cost fallacy,
+              risk-seeking behaviour
+            </TableCell>
+            <TableCell>
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              2020-01-01
+            </TableCell>
+            <TableCell>
+              123a
+            </TableCell>
+            <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
+            </TableCell>
+            <TableCell>
+              sunk-cost fallacy,
+              risk-seeking behaviour
+            </TableCell>
+            <TableCell>
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
+              2020-01-01
+            </TableCell>
+            <TableCell>
+              123a
+            </TableCell>
+            <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
+            </TableCell>
+            <TableCell>
+              sunk-cost fallacy,
+              risk-seeking behaviour
+            </TableCell>
+            <TableCell>
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
+              2020-01-01
+            </TableCell>
+            <TableCell>
+              123a
+            </TableCell>
+            <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
+            </TableCell>
+            <TableCell>
+              sunk-cost fallacy,
+              risk-seeking behaviour
+            </TableCell>
+            <TableCell>
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
+            </TableCell>
+          </TableRow>
+
+          <TableRow>
+            <TableCell>
+              2020-01-01
+            </TableCell>
+            <TableCell>
+              123a
+            </TableCell>
+            <TableCell>
+              Continue project 137b
+              Decided to continue 137b
+              after a long delays (6 mo.+)
+            </TableCell>
+            <TableCell>
+              sunk-cost fallacy,
+              risk-seeking behaviour
+            </TableCell>
+            <TableCell>
+              high previous
+              financial- and time-related investments
+
+            </TableCell>
+            <TableCell>
+              {/*<Label*/}
+              {/*    color="negative"*/}
+              {/*    isAnimationDisabled*/}
+              {/*    text=""*/}
+              {/*/>*/}
+              negative
             </TableCell>
           </TableRow>
         </TableBody>
