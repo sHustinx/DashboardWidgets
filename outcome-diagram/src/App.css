@@ -41,3 +41,7 @@ body {
 .recharts-surface{
   padding-right: 5px;
 }
+
+.recharts-legend-wrapper{
+  padding-bottom: 20px;
+}
