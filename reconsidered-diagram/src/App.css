@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.heading {
+  color: #585859;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.recharts-legend-item-text{
+  color: #4b4c57 !important;
+}
+
+.recharts-tooltip-item{
+  color: #4b4c57 !important;
+}
+
+.recharts-tooltip-label{
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.recharts-default-legend{
+  padding-top: 20px !important;
+  padding-right: 20px !important;
+}
+
+.recharts-surface{
+  padding-right: 5px;
+}
+
+.recharts-legend-wrapper{
+  padding-bottom: 20px;
+}
