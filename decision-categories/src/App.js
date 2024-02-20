@@ -12,16 +12,16 @@ import {PieChart, Pie, Legend, Tooltip, ResponsiveContainer, Cell} from 'rechart
 const monday = mondaySdk();
 
 const data = [
-    { name: 'not reconsidered', value: 59 },
-    { name: 'reconsidered and unchanged', value: 26 },
-    { name: 'reconsidered and changed', value: 15},
+    { name: 'finance', value: 60 },
+    { name: 'tech', value: 15 },
+    { name: 'marketing', value: 25 },
 ];
 
-const COLORS = ['#224364', '#497c98', '#79aabe'];
+const COLORS = ['#30577d', '#fbaa3e', '#e46978'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.35;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -37,11 +37,9 @@ class Outcome extends PureComponent {
     render() {
         return (
             <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={400} height={200}>
+                <PieChart width={400} height={400}>
                     <Pie
                         data={data}
-                        startAngle={180}
-                        endAngle={0}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
