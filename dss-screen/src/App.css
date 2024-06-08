@@ -1,0 +1,147 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.project-description, .decision-context, .milestones, .project-at-a-glance, .decision, .comment, .submit {
+  margin-bottom: 20px;
+}
+
+.milestone-bar {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 20px 0;
+}
+
+.milestone-bar:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+
+.milestone-bar svg {
+  margin: 0 5px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.over-time {
+  background-color: #ff9800;
+}
+
+.over-budget {
+  background-color: #f44336;
+}
+
+.high-priority {
+  background-color: #9c27b0;
+}
+
+.tech-domain {
+  background-color: #3f51b5;
+}
+
+.team-39b {
+  background-color: #4caf50;
+}
+
+.being-re-evaluated {
+  background-color: #607d8b;
+}
+
+.decision {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option {
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f4f4f4;
+}
+
+.option h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.stop {
+  background-color: #e3f2fd;
+  border-color: #90caf9;
+}
+
+.continue {
+  background-color: #f4f4f4;
+}
+
+.comment textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.submit {
+  text-align: center;
+}
+
+.submit button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.option ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.option li {
+  margin-bottom: 5px;
+}

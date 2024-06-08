@@ -37,7 +37,7 @@ class Outcome extends PureComponent {
     render() {
         return (
             <ResponsiveContainer width="100%" height="100%">
-                <h1>Infobox</h1>
+                <h1>Infobox </h1>
             </ResponsiveContainer>
         );
     }
