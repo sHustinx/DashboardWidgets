@@ -1,9 +1,14 @@
 import React from 'react';
+import notcompletedMilestone from '../assets/notcompleted.svg';
 
-const IncompleteMilestone = () => (
-    <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="15" cy="15" r="15" fill="#b0bec5" />
-    </svg>
-);
+
+const IncompleteMilestone = () => {
+    return (
+        <div className="milestone completed">
+
+            <img src={notcompletedMilestone} alt="Inomplete Milestone"/>
+        </div>
+    )
+};
 
 export default IncompleteMilestone;
