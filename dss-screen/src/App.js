@@ -34,13 +34,13 @@ function Overview() {
         <div className="project-description">
           <h2>Project Description</h2>
           <p>
-            This project develops a new mobile app, which would significantly improve the user experience, and could generate a potential revenue of 80k€. The project has faced some complications and initial user tests have indicated some performance and security issues that still need addressing. The involved stakeholders have asked for a re-evaluation on whether to stop or continue the project.
+            This project develops a new mobile app, which would significantly <strong>improve the user experience</strong>, and could generate a <strong>potential revenue of 80k€.</strong> The project has <strong>faced some complications</strong> and initial user tests have indicated some <strong>performance and security issues</strong> that still need addressing. The involved stakeholders <strong>have asked for a re-evaluation</strong> on whether to stop or continue the project.
           </p>
         </div>
         <div className="decision-context">
           <h2>Decision Context</h2>
           <p>
-            The project is currently 25k€ over budget (25k€ over budget of 50k€), and 2 months delayed (2 months over initial 10 month timeframe). Continuing the project would involve an additional investment of 30k€ and a project extension of 2 months with an estimated 70% chance of failure and a 30% chance of success. Stopping the project would involve no additional costs or potential revenue.
+            The project is currently <strong>25k€ over budget</strong> (25k€ over budget of 50k€), and <strong>2 months delayed</strong> (2 months over initial 10 month timeframe). <strong>Continuing the project</strong> would involve an additional investment of 30k€ and a project extension of 2 months with an estimated 70% chance of failure and a 30% chance of success. <strong>Stopping the project</strong> would involve no additional costs or potential revenue.
           </p>
         </div>
         <div className="milestones">
@@ -78,18 +78,20 @@ function Decision() {
   const [decision, setDecision] = useState('');
   const [comment, setComment] = useState('');
   const [confirm, setConfirm] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('stop'); // Set 'stop' as the initial selected option
+
 
   const handleSubmit = () => {
-    if (confirm && decision && comment) {
-      alert(`Decision: ${decision}\nComment: ${comment}`);
+    if (confirm && selectedOption && comment) {
+      alert(`Decision: ${selectedOption}\nComment: ${comment}`);
     } else {
       alert('Please fill out all fields and confirm your decision.');
     }
   };
 
   const handleSave = () => {
-    if (confirm && decision && comment) {
-      alert(`Decision: ${decision}\nComment: ${comment}`);
+    if (confirm && selectedOption && comment) {
+      alert(`Decision: ${selectedOption}\nComment: ${comment}`);
     } else {
       alert('Please fill out all fields and confirm your decision.');
     }
@@ -97,43 +99,50 @@ function Decision() {
 
   return (
       <div>
-      <div className="decision">
-        <div className="option stop">
-          <h3>STOP PROJECT</h3>
-          <p>Give recommendation to stop the project</p>
-          <ul>
-            <li>costs: -75k€ prev. investments</li>
-            <li>time: no additional time spent</li>
-            <li>revenue: 0€</li>
-            <li>risk estimations: 100% failure, 0% success</li>
-          </ul>
-          <input
-              type="radio"
-              id="stop"
-              name="decision"
-              value="stop"
-              onChange={() => setDecision('stop')}
-          />
+        <div className="decision">
+          <div className="option stop">
+            <input
+                type="radio"
+                id="stop"
+                name="decision"
+                value="stop"
+                checked={selectedOption === 'stop'}
+                onChange={() => setSelectedOption('stop')}
+            />
+            <div className="decision-box-content">
+              <label htmlFor="stop">
+                <h3>STOP PROJECT</h3>
+                <ul>
+                  <li>costs: -75k€ prev. investments</li>
+                  <li>time: no additional time spent</li>
+                  <li>revenue: 0€</li>
+                  <li>risk estimations: 100% failure, 0% success</li>
+                </ul>
+              </label>
+            </div>
+          </div>
+          <div className="option continue">
+            <input
+                type="radio"
+                id="continue"
+                name="decision"
+                value="continue"
+                checked={selectedOption === 'continue'}
+                onChange={() => setSelectedOption('continue')}
+            />
+            <div className="decision-box-content">
+              <label htmlFor="continue">
+                <h3>CONTINUE PROJECT</h3>
+                <ul>
+                  <li>costs: -75k€ prev. investments and -30k€ new investments</li>
+                  <li>time: +2 months time spent</li>
+                  <li>revenue: 80k€ potential revenue</li>
+                  <li>risk estimations: 70% failure, 30% success</li>
+                </ul>
+              </label>
+            </div>
+          </div>
         </div>
-        <div className="option continue">
-          <h3>CONTINUE PROJECT</h3>
-          <p>Give recommendation to re-invest</p>
-          <ul>
-            <li>costs: -75k€ prev. investments and -30k€ new investments</li>
-            <li>time: +2 months time spent</li>
-            <li>revenue: 80k€ potential revenue</li>
-            <li>risk estimations: 70% failure, 30% success</li>
-          </ul>
-          <input
-              type="radio"
-              id="continue"
-              name="decision"
-              value="continue"
-              onChange={() => setDecision('continue')}
-          />
-        </div>
-
-      </div>
         <div className="comment">
         <textarea
             id="comment"
@@ -143,16 +152,19 @@ function Decision() {
         ></textarea>
         </div>
         <div className="submit">
-          <input
-              type="checkbox"
-              id="confirm"
-              name="confirm"
-              checked={confirm}
-              onChange={() => setConfirm(!confirm)}
-          />
-          <label htmlFor="confirm">
-            I have considered the alternatives carefully and made an informed decision
-          </label>
+            <div>
+                  <input
+                      type="checkbox"
+                      id="confirm"
+                      name="confirm"
+                      checked={confirm}
+                      onChange={() => setConfirm(!confirm)}
+                  />
+
+                  <label htmlFor="confirm">
+                    I have considered the alternatives carefully and made an informed decision
+                  </label>
+            </div>
           <button id="submit-decision" onClick={handleSubmit}>
             Submit Decision
           </button>
