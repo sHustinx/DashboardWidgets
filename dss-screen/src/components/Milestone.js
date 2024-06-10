@@ -44,13 +44,13 @@ const MilestoneTracker = () => {
 
             <div className="milestone-bar">
                 <Timeline />
-                <Milestone number="M1" completed tooltip="Completed Milestone 1" />
-                <Milestone number="M2" completed tooltip="Completed Milestone 2" />
-                <Milestone number="M3" completed tooltip="Completed Milestone 3" />
-                <Milestone number="M4" completed tooltip="Completed Milestone 4" />
+                <Milestone number="M1" completed tooltip="Complete: Planning & Requirement Analysis" />
+                <Milestone number="M2" completed tooltip="Complete: Design & Prototyping" />
+                <Milestone number="M3" completed tooltip="Complete: Implementation Core Features" />
+                <Milestone number="M4" completed tooltip="Complete: First User Tests" />
                 <Divider text="current point"/>
-                <Milestone number="M5" completed={false} tooltip="Completed Milestone 5" />
-                <Milestone number="M6" completed={false} tooltip="Completed Milestone 6" />
+                <Milestone number="M5" completed={false} tooltip="Incomplete: Beta Release & Feedback" />
+                <Milestone number="M6" completed={false} tooltip="Incomplete: Final Release" />
             </div>
         </div>
     );

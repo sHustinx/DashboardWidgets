@@ -29,7 +29,6 @@ const GlanceTooltip = ({text, tooltipText, className}) => {
 };
 
 
-
 function Overview() {
     return (
         <div className="">
@@ -65,15 +64,16 @@ function Overview() {
           <span className="tag team-39b">team 39b</span>
           <span className="tag being-re-evaluated">being re-evaluated</span>*/}
                 <div className="tags">
-                    <GlanceTooltip text="over time" tooltipText="Project is currently behind schedule"
+                    <GlanceTooltip text="over time" tooltipText="Project is currently 2 months behind schedule"
                                    className="tag over-time"/>
-                    <GlanceTooltip text="over budget" tooltipText="Project has exceeded the budget"
+                    <GlanceTooltip text="over budget" tooltipText="Project has exceeded the budget by 15k€"
                                    className="tag over-budget"/>
-                    <GlanceTooltip text="high priority" tooltipText="Project is of high priority"
+                    <GlanceTooltip text="high priority" tooltipText="Project is classified as high priority"
                                    className="tag high-priority"/>
-                    <GlanceTooltip text="tech-domain" tooltipText="Project is related to the technology domain"
+                    <GlanceTooltip text="tech-domain"
+                                   tooltipText="Project is related to the technology domain (IT & Infrastructure)"
                                    className="tag tech-domain"/>
-                    <GlanceTooltip text="team 39b" tooltipText="Project is managed by team 39b"
+                    <GlanceTooltip text="team 39b" tooltipText="Project is carried out by project team 39b"
                                    className="tag team-39b"/>
                     <GlanceTooltip text="being re-evaluated" tooltipText="Project is currently under re-evaluation"
                                    className="tag being-re-evaluated"/>
@@ -84,12 +84,10 @@ function Overview() {
 }
 
 function Decision() {
-    const [decision, setDecision] = useState('');
     const [comment, setComment] = useState('');
     const [confirm, setConfirm] = useState(false);
     const [selectedOption, setSelectedOption] = useState('stop'); // Set 'stop' as the initial selected option
-
-
+   
     const handleSubmit = () => {
         if (confirm && selectedOption && comment) {
             alert(`Decision: ${selectedOption}\nComment: ${comment}`);
@@ -120,13 +118,34 @@ function Decision() {
                     />
                     <div className="decision-box-content">
                         <label htmlFor="stop">
-                            <h3>STOP PROJECT</h3>
-                            <ul>
-                                <li>costs: -75k€ prev. investments</li>
-                                <li>time: no additional time spent</li>
-                                <li>revenue: 0€</li>
-                                <li>risk estimations: 100% failure, 0% success</li>
-                            </ul>
+                            <h3 className="header">STOP PROJECT
+                                <InfoButton title="Why is this option pre-selected?"
+                                            tooltip={"This option was pre-selected as a smart default, because \n" +
+                                                "it appears to be the most rational choice based on the \n" +
+                                                "current project calculations and your past decision history.\n" +
+                                                "\n"}/>
+                            </h3>
+                            <h5>Give recommendation to stop the project</h5>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th>costs:</th>
+                                    <td>-75k€ prev. investments</td>
+                                </tr>
+                                <tr>
+                                    <th>time:</th>
+                                    <td>no additional time spent</td>
+                                </tr>
+                                <tr>
+                                    <th>revenue:</th>
+                                    <td>0€</td>
+                                </tr>
+                                <tr>
+                                    <th>risk-estimations:</th>
+                                    <td>100% failure, 0% success</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </label>
                     </div>
                 </div>
@@ -142,23 +161,40 @@ function Decision() {
                     <div className="decision-box-content">
                         <label htmlFor="continue">
                             <h3>CONTINUE PROJECT</h3>
-                            <ul>
-                                <li>costs: -75k€ prev. investments and -30k€ new investments</li>
-                                <li>time: +2 months time spent</li>
-                                <li>revenue: 80k€ potential revenue</li>
-                                <li>risk estimations: 70% failure, 30% success</li>
-                            </ul>
+                            <h5>Give recommendation to re-invest</h5>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <th>costs:</th>
+                                    <td>-75k€ prev. investments and -30k€ new investments</td>
+                                </tr>
+                                <tr>
+                                    <th>time:</th>
+                                    <td>+2 months time spent</td>
+                                </tr>
+                                <tr>
+                                    <th>revenue:</th>
+                                    <td>80k€ potential revenue</td>
+                                </tr>
+                                <tr>
+                                    <th>risk-estimations:</th>
+                                    <td>70% failure, <br/>30% success</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </label>
                     </div>
                 </div>
             </div>
-            <div className="comment">
-        <textarea
-            id="comment"
-            placeholder="Please provide a short (1-2 sentences) comment explaining your reasoning for the decision"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-        ></textarea>
+            <div className="comment" >
+                <textarea
+
+                    id="comment"
+                    placeholder="Please provide a short (1-2 sentences) comment explaining your reasoning for the decision"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+
             </div>
             <div className="submit">
                 <div>
@@ -192,7 +228,10 @@ const App = () => {
         <div className="App">
             <div className="container header bg-highlight-color">
                 <h1>Overview: Mobile-App Project </h1>
-                <InfoButton/>
+                <InfoButton title="What is the goal of this decision
+support system?" tooltip={"The goal of this system is to aid project managers in high-risk\n" +
+                    "decisions, by providing an overview of the most relevant data \n" +
+                    "and helping them make more rational decisions. "}/>
             </div>
 
             <div className="container">

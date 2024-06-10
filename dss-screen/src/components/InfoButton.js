@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 
-const InfoButton = () => {
+const InfoButton = ({title, tooltip}) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -12,7 +12,8 @@ const InfoButton = () => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <span className="info-icon">?</span>
-            {isHovered && <div className="tooltip">This is additional information.</div>}
+            {isHovered &&
+                <div className="tooltip"><h4>{title}</h4><p>{tooltip}</p></div>}
         </div>
     );
 };

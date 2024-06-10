@@ -106,6 +106,7 @@ h2 {
 
 .option h3 {
   margin-top: 0;
+  margin-bottom: 5px;
   font-size: 16px;
 }
 
@@ -326,7 +327,7 @@ h2 {
 
 .decision-box-content{
   margin-left: 40px;
-  padding: 5px 10px;
+  padding: 0 10px;
 }
 
 /* rb buttons end */
@@ -370,4 +371,62 @@ h2 {
   left: auto;
   margin: 0;
   bottom: 95%;
+}
+
+.option h5{
+  color: #606060;
+  margin: 0;
+  font-weight: normal;
+}
+
+th {
+  text-align: left;
+  vertical-align: top;
+  padding-right: 15px;
+}
+
+td{
+  vertical-align: top;
+}
+
+th, td {
+  padding-bottom: 5px;
+}
+
+table{
+  margin-top: 15px;
+  font-size: 0.8em;
+}
+
+.decision-box-content .info-icon{
+  color: #535353;
+  outline: 2px solid #535353;
+  padding: 2px;
+  height: 12px;
+  width: 12px;
+  font-size: 10px;
+}
+
+.tooltip{
+  padding: 15px;
+  text-align: left;
+}
+
+
+.tooltip h4{
+  text-align: left;
+  margin: 0;
+  color: white;
+}
+
+.tooltip p{
+  font-weight: normal;
+}
+
+.decision-box-content .tooltip{
+  width: 350px;
+}
+
+.decision-box-content .tooltip::after{
+  left: 35%;
 }
