@@ -12,6 +12,20 @@ import AttentionBox from "monday-ui-react-core/dist/AttentionBox.js";
 // Usage of mondaySDK example, for more information visit here: https://developer.monday.com/apps/docs/introduction-to-the-sdk/
 const monday = mondaySdk();
 
+const GlanceTooltip = ({ text, tooltipText, className }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+      <div
+          className={`glance-tooltip-container ${className}`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+      >
+        <span className="glance-tooltip-text">{text}</span>
+        {isHovered && <div className="glance-tooltip-content">{tooltipText}</div>}
+      </div>
+  );
+};
 
 function Overview() {
   return (
@@ -42,13 +56,19 @@ function Overview() {
         </div>
         <div className="project-at-a-glance">
           <h2>Project at a glance:</h2>
+          {/*<span className="tag over-time">over time</span>
+          <span className="tag over-budget">over budget</span>
+          <span className="tag high-priority">high priority</span>
+          <span className="tag tech-domain">tech-domain</span>
+          <span className="tag team-39b">team 39b</span>
+          <span className="tag being-re-evaluated">being re-evaluated</span>*/}
           <div className="tags">
-            <span className="tag over-time">over time</span>
-            <span className="tag over-budget">over budget</span>
-            <span className="tag high-priority">high priority</span>
-            <span className="tag tech-domain">tech-domain</span>
-            <span className="tag team-39b">team 39b</span>
-            <span className="tag being-re-evaluated">being re-evaluated</span>
+            <GlanceTooltip text="over time" tooltipText="Project is currently behind schedule" className="tag over-time" />
+            <GlanceTooltip text="over budget" tooltipText="Project has exceeded the budget" className="tag over-budget" />
+            <GlanceTooltip text="high priority" tooltipText="Project is of high priority" className="tag high-priority" />
+            <GlanceTooltip text="tech-domain" tooltipText="Project is related to the technology domain" className="tag tech-domain" />
+            <GlanceTooltip text="team 39b" tooltipText="Project is managed by team 39b" className="tag team-39b" />
+            <GlanceTooltip text="being re-evaluated" tooltipText="Project is currently under re-evaluation" className="tag being-re-evaluated" />
           </div>
         </div>
       </div>

@@ -28,6 +28,11 @@ body {
   padding: 20px 0;
 }
 
+h2 {
+  color: #535353;
+  margin: 0.5em 0;
+}
+
 .milestone-bar:before {
   content: '';
   position: absolute;
@@ -46,14 +51,16 @@ body {
 .tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .tag {
   color: #fff;
-  padding: 5px 10px;
-  margin: 5px;
+  padding: 8px 20px;
+  margin: 0 5px 0 0;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bolder;
 }
 
 .over-time {
@@ -215,3 +222,44 @@ body {
 .header h1 .info-button {
   margin-left: 10px;
 }
+
+/* at a glance tooltips */
+
+.glance-tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+.glance-tooltip-content {
+  visibility: visible;
+  width: 150px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the text */
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0.9;
+  font-weight: lighter;
+}
+
+.glance-tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Arrow at the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+
+
+/* at a glance tooltips end */
