@@ -5,6 +5,7 @@ import mondaySdk from "monday-sdk-js";
 import "monday-ui-react-core/dist/main.css";
 import CompletedMilestone from './components/CompletedMilestone';
 import IncompleteMilestone from './components/IncompleteMilestone';
+import InfoButton from './components/InfoButton';
 //Explore more Monday React Components here: https://style.monday.com/
 import AttentionBox from "monday-ui-react-core/dist/AttentionBox.js";
 
@@ -15,7 +16,9 @@ const monday = mondaySdk();
 function Overview() {
   return (
       <div className="">
+
         <div className="project-description">
+          <h2>Project Description</h2>
           <p>
             This project develops a new mobile app, which would significantly improve the user experience, and could generate a potential revenue of 80k€. The project has faced some complications and initial user tests have indicated some performance and security issues that still need addressing. The involved stakeholders have asked for a re-evaluation on whether to stop or continue the project.
           </p>
@@ -57,6 +60,14 @@ function Decision() {
   const [confirm, setConfirm] = useState(false);
 
   const handleSubmit = () => {
+    if (confirm && decision && comment) {
+      alert(`Decision: ${decision}\nComment: ${comment}`);
+    } else {
+      alert('Please fill out all fields and confirm your decision.');
+    }
+  };
+
+  const handleSave = () => {
     if (confirm && decision && comment) {
       alert(`Decision: ${decision}\nComment: ${comment}`);
     } else {
@@ -125,6 +136,9 @@ function Decision() {
           <button id="submit-decision" onClick={handleSubmit}>
             Submit Decision
           </button>
+          <button id="save-decision" onClick={handleSave}>
+            Save Decision
+          </button>
         </div>
       </div>
   );
@@ -135,8 +149,12 @@ const App = () => {
 
   return (
       <div className="App">
+        <div className="container header bg-highlight-color">
+          <h1>Overview: Mobile-App Project </h1>
+          <InfoButton />
+        </div>
+
         <div className="container">
-          <h1>Overview: Mobile-App Project</h1>
           <Overview />
           <Decision />
         </div>

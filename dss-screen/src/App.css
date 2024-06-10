@@ -1,5 +1,9 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -7,16 +11,10 @@ body {
 
 .container {
   max-width: 800px;
-  margin: 20px auto;
+  margin: 0px auto;
   background: #fff;
-  padding: 20px;
+  padding: 10px 40px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
 }
 
 .project-description, .decision-context, .milestones, .project-at-a-glance, .decision, .comment, .submit {
@@ -144,4 +142,76 @@ h1 {
 
 .option li {
   margin-bottom: 5px;
+}
+
+.bg-highlight-color{
+  background-color: #0f6c97;
+  color: white;
+}
+
+/* info button */
+.info-button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.info-icon {
+  background-color: rgba(0, 123, 255, 0);
+  color: white;
+  outline: 2px solid white;
+  border-radius: 50%;
+  padding: 5px 5px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.tooltip {
+  visibility: visible;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%; /* Position below the info icon */
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0.9;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%; /* Arrow at the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}
+
+
+/* info button end */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+}
+
+.header h1 .info-button {
+  margin-left: 10px;
 }
