@@ -476,3 +476,11 @@ table{
 }
 
 /* overlay end */
+
+.bg-highlight-color .tooltip{
+  margin-left: -200px;
+}
+
+.bg-highlight-color .tooltip::after{
+  margin-left: 50px;
+}

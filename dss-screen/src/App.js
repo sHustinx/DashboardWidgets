@@ -125,8 +125,9 @@ function Decision() {
             else{
                 setOverlayTitle(`Reflection Suggestion`);
                 setOverlayMessage(`Based on current project calculations and your decision-history, your decision 
-                                            might be influenced by loss-aversion and sunk-cost bias.  
-                                            This could enable risk-seeking behaviour in financial decisions.`); //${selectedOption}\\nComment: ${comment}\
+                                            might be influenced by loss-aversion and sunk-cost bias. 
+                                            This describes a tendency for people to irrationally continue a course of action after previous high investments in it, even though abandoning it might be more beneficial.
+                                            Such biases can enable risk-seeking behaviour in financial decisions.`); //${selectedOption}\\nComment: ${comment}\
                 setOverlayMessageBottom(`Do you want to reconsider your decision?`);
                 setFeedback(true);
                 setOverlayVisible(true);
