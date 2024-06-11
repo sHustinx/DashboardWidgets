@@ -12,7 +12,7 @@ import MilestoneTracker from "./components/Milestone";
 
 // Usage of mondaySDK example, for more information visit here: https://developer.monday.com/apps/docs/introduction-to-the-sdk/
 const monday = mondaySdk();
-
+const rationalOption = 'stop';
 const GlanceTooltip = ({text, tooltipText, className}) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -28,16 +28,7 @@ const GlanceTooltip = ({text, tooltipText, className}) => {
     );
 };
 
-const Overlay = ({ message, onClose }) => {
-    return (
-        <div className="overlay">
-            <div className="overlay-content">
-                <h2>{message}</h2>
-                <button onClick={onClose}>Close</button>
-            </div>
-        </div>
-    );
-};
+
 
 function Overview() {
     return (
@@ -93,41 +84,83 @@ function Overview() {
     );
 }
 
+
+
+
+const Overlay = ({ feedback, title, message, bottomMessage, onClose, onConfirm }) => {
+    //const Buttons = feedback ? ReconsiderButtons : CloseButton;
+
+    return (
+        <div className="overlay">
+            <div className="overlay-content">
+                <h2>{title}</h2>
+                <p>{message}</p>
+                <p>{bottomMessage}</p>
+                {feedback ? <div><button onClick={onConfirm}>Confirm Decision</button><button id={"reconsider"} onClick={onClose}>Reconsider Options</button></div> : <div><button onClick={onClose}>Close</button></div>}
+            </div>
+        </div>
+    );
+};
+
 function Decision() {
     const [comment, setComment] = useState('');
     const [confirm, setConfirm] = useState(false);
     const [selectedOption, setSelectedOption] = useState('stop'); // Set 'stop' as the initial selected option
     const [overlayVisible, setOverlayVisible] = useState(false);
     const [overlayMessage, setOverlayMessage] = useState('');
+    const [overlayMessageBottom, setOverlayMessageBottom] = useState('');
+    const [overlayTitle, setOverlayTitle] = useState('');
+    const [feedback, setFeedback] = useState(false);
 
     const handleSubmit = () => {
         if (confirm && selectedOption && comment) {
             //alert(`Decision: ${selectedOption}\nComment: ${comment}`);
-            setOverlayMessage(`Decision Submitted: ${selectedOption}\nComment: ${comment}`);
-            setOverlayVisible(true);
+            if (selectedOption === rationalOption){
+                setOverlayTitle(`Decision Submitted`);
+                setOverlayMessage(`Your decision has been successfully submitted.`); //${selectedOption}\\nComment: ${comment}\
+                setOverlayMessageBottom(`Recommendation: ${selectedOption} project (${comment})`);
+                setFeedback(false);
+                setOverlayVisible(true);
+            }
+            else{
+                setOverlayTitle(`Reflection Suggestion`);
+                setOverlayMessage(`Based on current project calculations and your decision-history, your decision 
+                                            might be influenced by loss-aversion and sunk-cost bias.  
+                                            This could enable risk-seeking behaviour in financial decisions.`); //${selectedOption}\\nComment: ${comment}\
+                setOverlayMessageBottom(`Do you want to reconsider your decision?`);
+                setFeedback(true);
+                setOverlayVisible(true);
+            }
+
         } else {
-            alert('Please fill out all fields and confirm your decision.');
+            alert('Please fill out all fields to confirm your decision.');
         }
     };
 
     const handleSave = () => {
-        if (confirm && selectedOption && comment) {
-            setOverlayMessage(`Decision Saved: ${selectedOption}\nComment: ${comment}`);
+        if (selectedOption && comment) {
+            setOverlayTitle(`Decision Saved`);
+            setOverlayMessage(`Your decision has been successfully saved.`); //${selectedOption}\\nComment: ${comment}\
+            setOverlayMessageBottom(``);
+            setFeedback(false);
             setOverlayVisible(true);
             //alert(`Decision: ${selectedOption}\nComment: ${comment}`);
         } else {
-            alert('Please fill out all fields and confirm your decision.');
+            alert('Please fill out a comment to save your decision.');
         }
     };
 
     const handleCloseOverlay = () => {
         setOverlayVisible(false);
         setOverlayMessage('');
+        setOverlayTitle('');
+        setOverlayMessageBottom('');
+        setFeedback(false);
     };
 
     return (
         <div>
-            {overlayVisible && <Overlay message={overlayMessage} onClose={handleCloseOverlay} />}
+            {overlayVisible && <Overlay feedback={feedback} title={overlayTitle} message={overlayMessage} bottomMessage={overlayMessageBottom} onClose={handleCloseOverlay} onConfirm={handleSave}/>}
             <div className="decision">
                 <div className="option stop">
                     <input

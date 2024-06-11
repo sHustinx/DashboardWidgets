@@ -434,7 +434,6 @@ table{
 
 /* overlay */
 
-/* Overlay.css */
 .overlay {
   position: fixed;
   top: 0;
@@ -445,27 +444,35 @@ table{
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .overlay-content {
+  min-width: 20%;
+  max-width: 600px;
   background: white;
   padding: 20px;
   border-radius: 5px;
-  text-align: center;
 }
 
 .overlay-content h2 {
   margin-bottom: 20px;
 }
 
+
 .overlay-content button {
+  margin-top: 30px;
+  margin-right: 20px;
   padding: 10px 20px;
   border: none;
   background: #007bff;
   color: white;
   cursor: pointer;
   border-radius: 5px;
+}
+
+#reconsider {
+  background: #777777;
 }
 
 /* overlay end */
