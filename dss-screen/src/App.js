@@ -28,6 +28,16 @@ const GlanceTooltip = ({text, tooltipText, className}) => {
     );
 };
 
+const Overlay = ({ message, onClose }) => {
+    return (
+        <div className="overlay">
+            <div className="overlay-content">
+                <h2>{message}</h2>
+                <button onClick={onClose}>Close</button>
+            </div>
+        </div>
+    );
+};
 
 function Overview() {
     return (
@@ -87,10 +97,14 @@ function Decision() {
     const [comment, setComment] = useState('');
     const [confirm, setConfirm] = useState(false);
     const [selectedOption, setSelectedOption] = useState('stop'); // Set 'stop' as the initial selected option
-   
+    const [overlayVisible, setOverlayVisible] = useState(false);
+    const [overlayMessage, setOverlayMessage] = useState('');
+
     const handleSubmit = () => {
         if (confirm && selectedOption && comment) {
-            alert(`Decision: ${selectedOption}\nComment: ${comment}`);
+            //alert(`Decision: ${selectedOption}\nComment: ${comment}`);
+            setOverlayMessage(`Decision Submitted: ${selectedOption}\nComment: ${comment}`);
+            setOverlayVisible(true);
         } else {
             alert('Please fill out all fields and confirm your decision.');
         }
@@ -98,14 +112,22 @@ function Decision() {
 
     const handleSave = () => {
         if (confirm && selectedOption && comment) {
-            alert(`Decision: ${selectedOption}\nComment: ${comment}`);
+            setOverlayMessage(`Decision Saved: ${selectedOption}\nComment: ${comment}`);
+            setOverlayVisible(true);
+            //alert(`Decision: ${selectedOption}\nComment: ${comment}`);
         } else {
             alert('Please fill out all fields and confirm your decision.');
         }
     };
 
+    const handleCloseOverlay = () => {
+        setOverlayVisible(false);
+        setOverlayMessage('');
+    };
+
     return (
         <div>
+            {overlayVisible && <Overlay message={overlayMessage} onClose={handleCloseOverlay} />}
             <div className="decision">
                 <div className="option stop">
                     <input
