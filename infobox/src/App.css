@@ -6,7 +6,6 @@ body {
 .App {
   height: 100vh;
   width: 100vw;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,34 +14,21 @@ body {
 /* InfoBox.css */
 
 .info-box-container {
-  font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.info-box-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0073e6;
-  color: white;
-  padding: 10px;
-  border-radius: 5px 5px 0 0;
-}
-
-.info-box-header button {
+.header button {
   background: none;
   border: none;
   color: white;
   font-size: 20px;
+  font-weight: bolder;
   cursor: pointer;
 }
 
 .content {
-  padding: 10px;
+  padding: 5px 30px;
 }
 
 .section {
@@ -54,7 +40,6 @@ body {
 }
 
 .example {
-  border-top: 1px solid #ccc;
   padding-top: 10px;
 }
 
@@ -62,41 +47,55 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 15px;
 }
 
 .option {
   width: 45%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 5px;
 }
 
-.option.one {
-  border-color: red;
-}
 
 .option.one .biased {
-  color: red;
   font-weight: bold;
 }
 
 .vs {
-  font-size: 24px;
-  font-weight: bold;
+  position: relative;
+  width: 10%;
   text-align: center;
+}
+
+.vs .dotted-line {
+  position: absolute;
+  top: -60px;
+  bottom: 40px;
+  left: 50%;
+  border-left: 1px dashed #535353;
+  transform: translateX(-50%);
+  z-index: 1;
+  height: 140px;
+}
+
+.vs span {
+  background: #6f6f70;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 7px;
+  position: relative;
+  font-weight: bold;
+  z-index: 1;
 }
 
 .option h4 {
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .option p {
   margin: 5px 0;
 }
 
-.option.two {
-  border-color: blue;
-}
 
 
 /* info button */
@@ -111,14 +110,14 @@ body {
   color: white;
   outline: 2px solid white;
   border-radius: 50%;
-  padding: 5px 5px;
-  font-size: 14px;
+  padding: 3px 3px;
+  font-size: 10px;
   font-weight: bold;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 
 .tooltip {
@@ -126,22 +125,25 @@ body {
   width: 200px;
   background-color: #555;
   color: #fff;
-  text-align: center;
+  text-align: left;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 10px 15px;
   position: absolute;
   z-index: 1;
   top: 125%; /* Position below the info icon */
-  left: 50%;
-  margin-left: -100px;
+  left: 60%;
   opacity: 0.9;
+}
+
+.tooltip h4{
+  margin-top: 5px;
 }
 
 .tooltip::after {
   content: '';
   position: absolute;
   bottom: 100%; /* Arrow at the top of the tooltip */
-  left: 50%;
+  left: 60%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
@@ -150,3 +152,124 @@ body {
 
 
 /* info button end */
+
+.container {
+  max-width: 800px;
+  margin: 0px auto;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+}
+
+.header h1 .info-button {
+  margin-left: 10px;
+}
+
+.bg-highlight-color{
+  background-color: #0f6c97;
+  color: white;
+}
+
+.bg-highlight-color .tooltip{
+  margin-left: -200px;
+}
+
+.bg-highlight-color .tooltip::after{
+  margin-left: 35px;
+}
+
+.info-box-container {
+  color: #535353;
+}
+
+.example h3{
+  width: fit-content;
+  background-color: #6f6f70;
+  color: white;
+  padding: 5px;
+  margin: 0;
+}
+
+.box-slanted {
+  background-color: #6f6f70;
+  position : relative;
+  display : inline-block;
+  min-width : 106px;
+  max-width: 106px;
+  text-align : center;
+  margin : 0 auto;
+}
+
+.box-slanted__verticalcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.box-slanted p {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding : 0px 15px;
+  height: 100%;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.box-slanted::after {
+  content: '';
+  height: 100%;
+  width: 20px;
+  background-color: #6f6f70;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  left: auto;
+  transform: skewX(15deg);
+  transform-origin: top;
+  -webkit-transform: skewX(15deg);
+  -webkit-transform-origin: 0 0;
+  z-index: 1;
+}
+
+
+.topscore{
+  background-color: #939393;
+  height: 2px;
+  margin-bottom: 15px;
+
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(79,79,79,0.4);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(79,79,79,0.4);
+  box-shadow: 0px 2px 2px 0px rgba(79,79,79,0.4);
+}
+
+.critical-color {
+  color: #e04d44;
+}
+
+
+.positive-color {
+  color: #016492;
+}
+
+.spacer{
+  height: 5px;
+}
+
+.bias-pref{
+  background-color: #e04d44;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: x-small;
+}

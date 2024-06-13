@@ -64,11 +64,11 @@ const InfoBox = () => {
 
     return (
         <div className="info-box-container">
-            <div className="info-box-header">
-                <button onClick={prevBias}>&lt;</button>
+            <div className="content header bg-highlight-color">
+                <button onClick={prevBias}>&#9664;</button>
                 <h2>{currentBias.title}</h2>
-                <button onClick={nextBias}>&gt;</button>
-                <InfoButton title="Title" tooltip={"text"}/>
+                <button onClick={nextBias}>&#9654;</button>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
             </div>
             <div className="content">
                 <div className="section">
@@ -80,21 +80,33 @@ const InfoBox = () => {
                     <p>{currentBias.howToPrevent}</p>
                 </div>
                 <div className="example">
-                    <h3>Example</h3>
-                    <div className="options">
+                    <div className="box-slanted">
+                        <div className="box-slanted__verticalcenter">
+                            <h3>Example</h3>
+                        </div>
+                    </div>
+                    <div className={"topscore"}></div>
+                    <div className="options ">
                         <div className="option one">
-                            <h4>{currentBias.example.optionOne.title}</h4>
+                            <h4 className="header critical-color">{currentBias.example.optionOne.title}
+                                <div className="bias-pref">biased preference</div>
+                            </h4>
                             {currentBias.example.optionOne.details.map((detail, index) => (
-                                <p key={index}>• {detail}</p>
+                                <p className="critical-color" key={index}>• {detail}</p>
                             ))}
+                            <div className="spacer"></div>
                             <p>{currentBias.example.optionOne.description}</p>
                         </div>
-                        <div className="vs">vs</div>
+                        <div className="vs">
+                            <div className="dotted-line"></div>
+                            <span>vs</span>
+                        </div>
                         <div className="option two">
-                            <h4>{currentBias.example.optionTwo.title}</h4>
+                            <h4 className="positive-color">{currentBias.example.optionTwo.title}</h4>
                             {currentBias.example.optionTwo.details.map((detail, index) => (
-                                <p key={index}>• {detail}</p>
+                                <p className="positive-color" key={index}>• {detail}</p>
                             ))}
+                            <div className="spacer"></div>
                             <p>{currentBias.example.optionTwo.description}</p>
                         </div>
                     </div>
@@ -109,7 +121,7 @@ const InfoButton = ({title, tooltip}) => {
 
     return (
         <div
-            className="info-button"
+            className="info-button "
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -122,8 +134,10 @@ const InfoButton = ({title, tooltip}) => {
 
 const App = () => {
     return (
-        <div>
-            <InfoBox />
+        <div className="App">
+            <div className="container">
+                <InfoBox />
+            </div>
         </div>
     );
 };
