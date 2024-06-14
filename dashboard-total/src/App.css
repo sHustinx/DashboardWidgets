@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+
+.item.a {
+  grid-area: header;
+  background-color: blue;
+}
+.item.b {
+  grid-area: main;
+  background-color: red;
+}
+.item.c {
+  grid-area: sidebar;
+  background-color: yellow;
+}
+.item.d {
+  grid-area: footer;
+  background-color: green;
+}
+
+.container {
+  height: 96vh;
+  width: 98vw;
+  padding: 2vh 1vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px 15px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header header . . . . sidebar"
+    "main main footer footer . . . . .";
+}
