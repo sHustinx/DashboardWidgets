@@ -14,7 +14,8 @@
   "dependencies": {
     "@mondaycom/apps-sdk": "^2.1.2",
     "monday-sdk-js": "^0.5.0",
-    "monday-ui-react-core": "^1.54.0"
+    "monday-ui-react-core": "^1.134.1",
+    "recharts": "^2.12.7"
   },
   "eslintConfig": {
     "extends": "react-app"
