@@ -423,3 +423,11 @@ body {
 }
 
 /* infobox end */
+
+.halfpie{
+}
+
+/* position halfpie on screen */
+.halfpie svg{
+  height:120% !important;
+}

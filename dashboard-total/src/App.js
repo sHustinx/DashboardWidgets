@@ -452,16 +452,17 @@ class Outcome extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={400} height={400}>
+            <div style={{ width: '100%', height: '80%'}}>
+            <ResponsiveContainer>
+                <PieChart>
                     <Pie
                         data={outcomeData}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
-                        innerRadius={30}
+                        outerRadius={150}
+                        innerRadius={60}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -473,6 +474,7 @@ class Outcome extends PureComponent {
                     <Legend />
                 </PieChart>
             </ResponsiveContainer>
+            </div>
         );
     }
 }
@@ -482,7 +484,7 @@ class Outcome extends PureComponent {
 
 const reconsideredData = [
     { name: 'not reconsidered', value: 59 },
-    { name: 'reconsidered and unchanged', value: 26 },
+    { name: 'reconsidered and not changed', value: 26 },
     { name: 'reconsidered and changed', value: 15},
 ];
 
@@ -493,8 +495,10 @@ class Reconsidered extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={400} height={200}>
+
+            <div style={{ width: '100%', height: '80%'}}>
+            <ResponsiveContainer>
+                <PieChart className={"halfpie"}>
                     <Pie
                         data={reconsideredData}
                         startAngle={180}
@@ -503,8 +507,8 @@ class Reconsidered extends PureComponent {
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
-                        innerRadius={30}
+                        outerRadius={150}
+                        innerRadius={60}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -516,6 +520,7 @@ class Reconsidered extends PureComponent {
                     <Legend />
                 </PieChart>
             </ResponsiveContainer>
+            </div>
         );
     }
 }
@@ -532,16 +537,17 @@ class DecisionCategories extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart width={400} height={400}>
+            <div style={{ width: '100%', height: '80%'}}>
+            <ResponsiveContainer>
+                <PieChart>
                     <Pie
                         data={decCategorizedData}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
-                        innerRadius={30}
+                        outerRadius={150}
+                        innerRadius={60}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -553,6 +559,7 @@ class DecisionCategories extends PureComponent {
                     <Legend />
                 </PieChart>
             </ResponsiveContainer>
+            </div>
         );
     }
 }
@@ -710,12 +717,15 @@ const App = () => {
         </div>
 
         <div className="item outcome">
+            <h2>Outcome of <br/>biased decisions</h2>
             <Outcome/>
         </div>
         <div className="item reconsidered">
+            <h2>Decisions reconsidered</h2>
             <Reconsidered/>
         </div>
         <div className="item categorized">
+            <h2>Biased decisions <br/>categorized</h2>
             <DecisionCategories/>
         </div>
         <div className="item infobox">
