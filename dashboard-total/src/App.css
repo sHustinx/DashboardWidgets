@@ -433,7 +433,6 @@ body {
 }
 
 /* detail view project list */
-
 .project-list-container {
   width: 100%;
 }
@@ -462,6 +461,11 @@ body {
 .project-list-cell {
   flex: 1;
   padding: 0 10px;
+
+}
+
+.sort-dv{
+  cursor: pointer;
 }
 
 .project-item {
@@ -471,7 +475,6 @@ body {
 .project-item:hover {
   background-color: #f0f0f0;
 }
-
 
 .modal {
   position: fixed;

@@ -747,6 +747,8 @@ const projectData = [
 
 const ProjectList = () => {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [sortOrder, setSortOrder] = useState('asc');
+    const [sortedData, setSortedData] = useState(projectData);
 
     const handleClick = (project) => {
         setSelectedProject(project);
@@ -756,11 +758,22 @@ const ProjectList = () => {
         setSelectedProject(null);
     };
 
+    const handleSort = () => {
+        const sorted = [...sortedData].sort((a, b) => {
+            const dateA = new Date(a.date.split('-').reverse().join('-'));
+            const dateB = new Date(b.date.split('-').reverse().join('-'));
+            return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+        });
+        setSortedData(sorted);
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    };
+
+
     return (
         <div className="project-list-container">
             <div className="project-list-header">
                 <div className="project-list-row">
-                    <div className="project-list-cell">Date ▼</div>
+                    <div className="project-list-cell sort-dv" onClick={handleSort}>Date {sortOrder === 'asc' ? '▲' : '▼'}</div>
                     <div className="project-list-cell">Project</div>
                     <div className="project-list-cell">Decision</div>
                     <div className="project-list-cell">Suspected Bias</div>
@@ -769,7 +782,7 @@ const ProjectList = () => {
                 </div>
             </div>
             <div className="project-list">
-                {projectData.map((project, index) => (
+                {sortedData.map((project, index) => (
                     <div key={index} className="project-item" onClick={() => handleClick(project)}>
                         <div className="project-list-row">
                             <div className="project-list-cell">{project.date}</div>
