@@ -682,6 +682,129 @@ const InfoBox = () => {
     );
 };
 
+const projectData = [
+    {
+        date: "18-12-2023",
+        project: "137b",
+        decision: "Continue project 137b",
+        details: "Decided to continue 137b after a long delay (6 mo.+)",
+        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
+        outcome: "negative",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+    {
+        date: "5-11-2023",
+        project: "12a",
+        decision: "Kill project 12a",
+        details: "Decided to discontinue 12a early after increased costs",
+        suspectedBias: ["loss aversion"],
+        outcome: "negative",
+        comment: "previous financial losses in multiple other projects",
+        reportLink: "#",
+    },
+    {
+        date: "1-10-2023",
+        project: "7c",
+        decision: "Continue project 7c",
+        details: "Decided to continue 7c after increased costs",
+        suspectedBias: ["sunk-cost fallacy"],
+        outcome: "positive",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+    {
+        date: "18-12-2023",
+        project: "137b",
+        decision: "Continue project 137b",
+        details: "Decided to continue 137b after a long delay (6 mo.+)",
+        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
+        outcome: "negative",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+    {
+        date: "5-11-2023",
+        project: "12a",
+        decision: "Kill project 12a",
+        details: "Decided to discontinue 12a early after increased costs",
+        suspectedBias: ["loss aversion"],
+        outcome: "negative",
+        comment: "previous financial losses in multiple other projects",
+        reportLink: "#",
+    },
+    {
+        date: "1-10-2023",
+        project: "7c",
+        decision: "Continue project 7c",
+        details: "Decided to continue 7c after increased costs",
+        suspectedBias: ["sunk-cost fallacy"],
+        outcome: "positive",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+];
+
+const ProjectList = () => {
+    const [selectedProject, setSelectedProject] = useState(null);
+
+    const handleClick = (project) => {
+        setSelectedProject(project);
+    };
+
+    const handleClose = () => {
+        setSelectedProject(null);
+    };
+
+    return (
+        <div className="project-list-container">
+            <div className="project-list-header">
+                <div className="project-list-row">
+                    <div className="project-list-cell">Date ▼</div>
+                    <div className="project-list-cell">Project</div>
+                    <div className="project-list-cell">Decision</div>
+                    <div className="project-list-cell">Suspected Bias</div>
+                    <div className="project-list-cell">Outcome</div>
+                    <div className="project-list-cell">Comment</div>
+                </div>
+            </div>
+            <div className="project-list">
+                {projectData.map((project, index) => (
+                    <div key={index} className="project-item" onClick={() => handleClick(project)}>
+                        <div className="project-list-row">
+                            <div className="project-list-cell">{project.date}</div>
+                            <div className="project-list-cell">{project.project}</div>
+                            <div className="project-list-cell">{project.decision}</div>
+                            <div className="project-list-cell">{project.suspectedBias.join(", ")}</div>
+                            <div className="project-list-cell">{project.outcome} (<a href={project.reportLink}>see report</a>)</div>
+                            <div className="project-list-cell">{project.comment}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose} />}
+        </div>
+    );
+};
+
+const ProjectDetail = ({ project, onClose }) => {
+    return (
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={onClose}>&times;</span>
+                <h2>Project {project.project}</h2>
+                <p><strong>Date:</strong> {project.date}</p>
+                <p><strong>Decision:</strong> {project.decision}</p>
+                <p><strong>Details:</strong> {project.details}</p>
+                <p><strong>Suspected Bias:</strong> {project.suspectedBias.join(", ")}</p>
+                <p><strong>Outcome:</strong> {project.outcome} (<a href={project.reportLink}>see report</a>)</p>
+                <p><strong>Comment:</strong> {project.comment}</p>
+            </div>
+        </div>
+    );
+};
+
+
 const InfoButton = ({title, tooltip}) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -708,7 +831,10 @@ const App = () => {
             <h2>Biased decisions over time</h2>
             <TimeLine/>
         </div>
-        <div className="item detailview">Detail View</div>
+        <div className="item detailview">
+            <h2>Detail view: Biased project decisions</h2>
+            <ProjectList />
+        </div>
         <div className="item biascount">
             <AvgBias/>
         </div>
