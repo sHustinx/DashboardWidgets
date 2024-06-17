@@ -621,9 +621,12 @@ const InfoBox = () => {
     return (
         <div className="info-box-container">
             <div className="content header bg-highlight-color">
-                <button onClick={prevBias}>&#9664;</button>
-                <h2>{currentBias.title}</h2>
-                <button onClick={nextBias}>&#9654;</button>
+                <div className={"button-spacer"}>
+                    <button onClick={prevBias}>&#9664;</button>
+                    <h2>{currentBias.title}</h2>
+                    <button onClick={nextBias}>&#9654;</button>
+                </div>
+
                 <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
             </div>
             <div className="content">
