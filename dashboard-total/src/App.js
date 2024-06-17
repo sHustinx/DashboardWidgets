@@ -63,316 +63,14 @@ const timeData = [
     },
 ];
 
-// const DetailView = () => {
-//     return (
-//         <div className="App">
-//             <Table style={{
-//                 width: "auto"
-//             }}
-//                    columns={[
-//                        {
-//                            id: 'd-date',
-//                            loadingStateType: 'medium-text',
-//                            title: 'Date',
-//                            width:120
-//                        },
-//                        {
-//                            id: 'd-project',
-//                            loadingStateType: 'short-text',
-//                            title: 'Project',
-//                            width:100
-//                        },
-//                        {
-//                            id: 'd-decision',
-//                            loadingStateType: 'medium-text',
-//                            title: 'Decision'
-//                        },
-//                        {
-//                            id: 'd-bias',
-//                            loadingStateType: 'medium-text',
-//                            title: 'Bias',
-//                            width: 200
-//                        },
-//                        {
-//                            id: 'd-reasoning',
-//                            loadingStateType: 'medium-text',
-//                            title: 'Reasoning',
-//                            width: {
-//                                max: 200,
-//                                min: 120
-//                            }
-//                        },
-//                        {
-//                            id: 'd-outcome',
-//                            loadingStateType: 'medium-text',
-//                            title: 'Outcome',
-//                            width: 150
-//                        }
-//                    ]}
-//             >
-//                 <TableHeader>
-//                     <TableHeaderCell title="Date" />
-//                     <TableHeaderCell title="Project" />
-//                     <TableHeaderCell title="Decision" />
-//                     <TableHeaderCell title="Suspected Bias" />
-//                     <TableHeaderCell title="Reasoning" />
-//                     <TableHeaderCell title="Outcome" />
-//                 </TableHeader>
-//                 <TableBody>
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>
-//
-//                     <TableRow>
-//                         <TableCell>
-//                             2020-01-01
-//                         </TableCell>
-//                         <TableCell>
-//                             123a
-//                         </TableCell>
-//                         <TableCell>
-//                             Continue project 137b
-//                             Decided to continue 137b
-//                             after a long delays (6 mo.+)
-//                         </TableCell>
-//                         <TableCell>
-//                             sunk-cost fallacy,
-//                             risk-seeking behaviour
-//                         </TableCell>
-//                         <TableCell>
-//                             high previous
-//                             financial- and time-related investments
-//
-//                         </TableCell>
-//                         <TableCell>
-//                             {/*<Label*/}
-//                             {/*    color="negative"*/}
-//                             {/*    isAnimationDisabled*/}
-//                             {/*    text=""*/}
-//                             {/*/>*/}
-//                             negative
-//                         </TableCell>
-//                     </TableRow>cd
-//                 </TableBody>
-//             </Table>
-//         </div>
-//     );
-//
-// }
 
 const ImpactStats = () => {
     return (
         <div>
-            <h3 className="">Average financial <br/>impact</h3>
+            <div className=" header">
+                <h3 className="">Average financial <br/>impact</h3>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
             <div className="align-center">
                 <p className="big-num">-7.5k €</p>
                 <p className="bn-descr text-grey">per biased decisions</p>
@@ -384,7 +82,11 @@ const ImpactStats = () => {
 const AvgBias = () => {
     return (
         <div>
-            <h3 className="">Average bias <br/>count</h3>
+            <div className=" header">
+                <h3 className="">Average bias <br/>count</h3>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
+
             <div className="align-center">
                 <p className="big-num">5</p>
                 <p className="bn-descr text-grey">biased decisions per month</p>
@@ -399,7 +101,7 @@ class TimeLine extends PureComponent {
     // todo: add filter function;
     render() {
         return (
-            <ResponsiveContainer width="95%" height="75%">
+            <ResponsiveContainer width="95%" height="80%">
                 <AreaChart
                     width={500}
                     height={300}
@@ -774,23 +476,23 @@ const ProjectList = () => {
             <div className="project-list-header">
                 <div className="project-list-row">
                     <div className="project-list-cell sort-dv" onClick={handleSort}>Date {sortOrder === 'asc' ? '▲' : '▼'}</div>
-                    <div className="project-list-cell">Project</div>
+                    <div className="project-list-cell smaller">Project</div>
                     <div className="project-list-cell">Decision</div>
                     <div className="project-list-cell">Suspected Bias</div>
-                    <div className="project-list-cell">Outcome</div>
-                    <div className="project-list-cell">Comment</div>
+                    <div className="project-list-cell ">Outcome</div>
+                    <div className="project-list-cell bigger">Comment</div>
                 </div>
             </div>
             <div className="project-list">
                 {sortedData.map((project, index) => (
                     <div key={index} className="project-item" onClick={() => handleClick(project)}>
                         <div className="project-list-row">
-                            <div className="project-list-cell">{project.date}</div>
-                            <div className="project-list-cell">{project.project}</div>
+                            <div className="bold project-list-cell">{project.date}</div>
+                            <div className="bold project-list-cell smaller">{project.project}</div>
                             <div className="project-list-cell">{project.decision}</div>
                             <div className="project-list-cell">{project.suspectedBias.join(", ")}</div>
-                            <div className="project-list-cell">{project.outcome} (<a href={project.reportLink}>see report</a>)</div>
-                            <div className="project-list-cell">{project.comment}</div>
+                            <div className="project-list-cell ">{project.outcome} <br/>(<a href={project.reportLink}>see report</a>)</div>
+                            <div className="project-list-cell bigger">{project.comment}</div>
                         </div>
                     </div>
                 ))}
@@ -841,11 +543,19 @@ const App = () => {
   return (
     <div className="container">
         <div className="item timeline">
-            <h2>Biased decisions over time</h2>
+            <div className="header">
+                <h2>Biased decisions over time</h2>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
+
             <TimeLine/>
         </div>
         <div className="item detailview">
-            <h2>Detail view: Biased project decisions</h2>
+            <div className="header">
+                <h2>Detail view: Biased project decisions</h2>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
+
             <ProjectList />
         </div>
         <div className="item biascount">
@@ -856,15 +566,25 @@ const App = () => {
         </div>
 
         <div className="item outcome">
-            <h2>Outcome of <br/>biased decisions</h2>
+            <div className="header">
+                <h2>Outcome of <br/>biased decisions</h2>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
+
             <Outcome/>
         </div>
         <div className="item reconsidered">
-            <h2>Decisions reconsidered</h2>
+            <div className="header">
+                <h2>Decisions reconsidered</h2>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
             <Reconsidered/>
         </div>
         <div className="item categorized">
-            <h2>Biased decisions <br/>categorized</h2>
+            <div className="header">
+                <h2>Biased decisions <br/>categorized</h2>
+                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            </div>
             <DecisionCategories/>
         </div>
         <div className="item infobox">
@@ -874,5 +594,5 @@ const App = () => {
   );
 };
 
-// TODO add all info boxes
+
 export default App;

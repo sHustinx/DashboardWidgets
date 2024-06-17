@@ -231,13 +231,13 @@ body {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  padding-right: 5px;
+  padding: 5px 15px ;
 }
 
 .info-icon {
   background-color: rgba(0, 123, 255, 0);
-  color: white;
-  outline: 2px solid white;
+  color: #565656;
+  outline: 2px solid #565656;
   border-radius: 50%;
   padding: 3px 3px;
   font-size: 10px;
@@ -249,6 +249,11 @@ body {
   height: 10px;
 }
 
+.info-box-container .info-icon{
+  color: white;
+  outline: 2px solid white;
+}
+
 .tooltip {
   visibility: visible;
   width: 200px;
@@ -258,7 +263,7 @@ body {
   border-radius: 6px;
   padding: 10px 15px;
   position: absolute;
-  z-index: 1;
+  z-index: 5;
   top: 125%; /* Position below the info icon */
   left: 60%;
   opacity: 0.9;
@@ -286,7 +291,7 @@ body {
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -328,7 +333,7 @@ body {
   font-weight: bold;
 }
 
-.content h2{
+.info-box-container h2{
   color: white;
   margin: 0;
   padding: 5px;
@@ -434,7 +439,20 @@ body {
 
 /* detail view project list */
 .project-list-container {
+  color: #535353;
   width: 100%;
+}
+
+.project-list-cell.smaller{
+  flex: 0.5 0.5;
+}
+
+.project-list-cell.bigger{
+  flex: 1.5 1.5;
+}
+
+a{
+  color: #0c61b6;
 }
 
 .project-list-header {
@@ -444,11 +462,13 @@ body {
   background-color: white;
   z-index: 1;
   border-bottom: 2px solid #ccc;
+  text-align: left;
 }
 
 .project-list {
   height: 350px;
   overflow-y: scroll;
+  color: #838383;
 }
 
 .project-list-row {
@@ -476,6 +496,8 @@ body {
   background-color: #f0f0f0;
 }
 
+/* modal pop up */
+
 .modal {
   position: fixed;
   z-index: 1;
@@ -493,7 +515,19 @@ body {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 40%;
+}
+
+.modal-content h2{
+  margin-left: 0;
+}
+
+.project-list-header .project-list-cell{
+  font-weight: bold;
+}
+
+.bold{
+  font-weight: bold;
 }
 
 .close {
