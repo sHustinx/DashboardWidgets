@@ -266,23 +266,13 @@ body {
   z-index: 5;
   top: 125%; /* Position below the info icon */
   left: 60%;
-  opacity: 0.9;
 }
 
 .tooltip h4{
   margin-top: 5px;
 }
 
-.tooltip::after {
-  content: '';
-  position: absolute;
-  bottom: 100%; /* Arrow at the top of the tooltip */
-  left: 60%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #555 transparent;
-}
+
 
 
 /* info button end */
@@ -545,3 +535,33 @@ a{
 }
 
 /* detailview end */
+
+/* dropdown for categories */
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #8884d8;
+}
+
+/* dropdown end */

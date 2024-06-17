@@ -227,23 +227,46 @@ class Reconsidered extends PureComponent {
     }
 }
 
-const decCategorizedData = [
+const decCategorizedData1 = [
     { name: 'finance', value: 60 },
     { name: 'tech', value: 15 },
     { name: 'marketing', value: 25 },
 ];
 
+const decCategorizedData2 = [
+    { name: 'finance', value: 40 },
+    { name: 'tech', value: 30 },
+    { name: 'marketing', value: 30 },
+];
+
 const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#e46978'];
 
 class DecisionCategories extends PureComponent {
+    state = {
+        selectedDataset: 'dataset1',
+    };
 
+    handleDatasetChange = (event) => {
+        this.setState({ selectedDataset: event.target.value });
+    };
     render() {
+        const { selectedDataset } = this.state;
+        const data = selectedDataset === 'dataset1' ? decCategorizedData1 : decCategorizedData2;
+
         return (
+
             <div style={{ width: '100%', height: '80%'}}>
+                <div className="dropdown-container">
+                    <label htmlFor="dataset-select">Per project domain </label>
+                    <select id="dataset-select" onChange={this.handleDatasetChange} value={selectedDataset}>
+                        <option value="dataset1">Dataset 1</option>
+                        <option value="dataset2">Dataset 2</option>
+                    </select>
+                </div>
             <ResponsiveContainer>
                 <PieChart>
                     <Pie
-                        data={decCategorizedData}
+                        data={data}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
@@ -253,7 +276,7 @@ class DecisionCategories extends PureComponent {
                         fill="#8884d8"
                         dataKey="value"
                     >
-                        {decCategorizedData.map((entry, index) => (
+                        {data.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={DEC_CAT_COLORS[index % DEC_CAT_COLORS.length]} />
                         ))}
                     </Pie>
