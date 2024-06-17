@@ -619,7 +619,7 @@ const InfoBox = () => {
     const currentBias = biases[currentIndex];
 
     return (
-        <div className="">
+        <div className="info-box-container">
             <div className="content header bg-highlight-color">
                 <button onClick={prevBias}>&#9664;</button>
                 <h2>{currentBias.title}</h2>

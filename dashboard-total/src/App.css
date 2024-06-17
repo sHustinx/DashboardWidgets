@@ -9,6 +9,7 @@ body {
   box-shadow: 0px 0px 5px 0px rgb(124, 124, 124);
 
   align-content: center;
+  background-color: white;
 }
 
 .item.timeline {
@@ -56,6 +57,7 @@ body {
 }
 
 .container {
+  background-color: #f4f5fa;
   height: 96vh;
   width: 98vw;
   padding: 2vh 1vw;
@@ -143,13 +145,9 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  /*font-size: 20px;*/
   font-weight: bolder;
   cursor: pointer;
-}
-
-.content {
-  padding: 5px 30px;
 }
 
 .section {
@@ -224,6 +222,7 @@ body {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  padding-right: 5px;
 }
 
 .info-icon {
@@ -306,6 +305,29 @@ body {
 
 .info-box-container {
   color: #535353;
+  height: 100%;
+  align-content: stretch;
+  font-size: 1.4vh;
+}
+
+.info-box-container .content{
+  padding: 10px;
+}
+
+.content h3{
+  margin: 0;
+  font-weight: bold;
+}
+
+.content h2{
+  color: white;
+  margin: 0;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.section p{
+  margin-top: 5px;
 }
 
 .example h3{
