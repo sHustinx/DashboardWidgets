@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from "react";
+import React, {PureComponent, useState} from "react";
 import "./App.css";
 import "monday-ui-react-core/dist/main.css";
 
@@ -69,7 +69,8 @@ const ImpactStats = () => {
         <div>
             <div className=" header">
                 <h3 className="">Average financial <br/>impact</h3>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                <InfoButton title="What is this?"
+                            tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
             </div>
             <div className="align-center">
                 <p className="big-num">-7.5k €</p>
@@ -84,7 +85,8 @@ const AvgBias = () => {
         <div>
             <div className=" header">
                 <h3 className="">Average bias <br/>count</h3>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                <InfoButton title="What is this?"
+                            tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
             </div>
 
             <div className="align-center">
@@ -113,15 +115,17 @@ class TimeLine extends PureComponent {
                         bottom: 5,
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis label={{ value: 'decisions', angle: -90, position: 'insideLeft' }} />
+                    <CartesianGrid strokeDasharray="3 3"/>
+                    <XAxis dataKey="name"/>
+                    <YAxis label={{value: 'decisions', angle: -90, position: 'insideLeft'}}/>
                     <Tooltip/>
                     <Legend iconType={"circle"}/>
                     <Area type="linear" dataKey="all decisions" stroke="#c4def6" strokeDasharray="5 5" fill="#c4def6"
-                          activeDot={{ r: 8 }} />
-                    <Area type="linear" dataKey="biased decisions" stroke="#85bde0" strokeDasharray="5 5" fill="#85bde0"/>
-                    <Area type="linear" dataKey="biased decisions w. negative outcome" strokeDasharray="5 5" stroke="#5d93be" fill="#5d93be"/>
+                          activeDot={{r: 8}}/>
+                    <Area type="linear" dataKey="biased decisions" stroke="#85bde0" strokeDasharray="5 5"
+                          fill="#85bde0"/>
+                    <Area type="linear" dataKey="biased decisions w. negative outcome" strokeDasharray="5 5"
+                          stroke="#5d93be" fill="#5d93be"/>
                 </AreaChart>
             </ResponsiveContainer>
         );
@@ -130,15 +134,15 @@ class TimeLine extends PureComponent {
 
 
 const outcomeData = [
-    { name: 'undecided', value: 61 },
-    { name: 'negative', value: 36 },
-    { name: 'positive', value: 33 },
+    {name: 'undecided', value: 61},
+    {name: 'negative', value: 36},
+    {name: 'positive', value: 33},
 ];
 
 const OUTCOME_COLORS = ['#4b4c57', '#e04d44', '#00a964'];
 
 const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, percent, index}) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -154,40 +158,38 @@ class Outcome extends PureComponent {
 
     render() {
         return (
-            <div style={{ width: '100%', height: '80%'}}>
-            <ResponsiveContainer>
-                <PieChart>
-                    <Pie
-                        data={outcomeData}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-                        outerRadius={150}
-                        innerRadius={60}
-                        fill="#8884d8"
-                        dataKey="value"
-                    >
-                        {outcomeData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={OUTCOME_COLORS[index % OUTCOME_COLORS.length]} />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+            <div style={{width: '100%', height: '80%'}}>
+                <ResponsiveContainer>
+                    <PieChart>
+                        <Pie
+                            data={outcomeData}
+                            cx="50%"
+                            cy="50%"
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={150}
+                            innerRadius={60}
+                            fill="#8884d8"
+                            dataKey="value"
+                        >
+                            {outcomeData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={OUTCOME_COLORS[index % OUTCOME_COLORS.length]}/>
+                            ))}
+                        </Pie>
+                        <Tooltip/>
+                        <Legend/>
+                    </PieChart>
+                </ResponsiveContainer>
             </div>
         );
     }
 }
 
 
-
-
 const reconsideredData = [
-    { name: 'not reconsidered', value: 59 },
-    { name: 'reconsidered and not changed', value: 26 },
-    { name: 'reconsidered and changed', value: 15},
+    {name: 'not reconsidered', value: 59},
+    {name: 'reconsidered and not changed', value: 26},
+    {name: 'reconsidered and changed', value: 15},
 ];
 
 const RECONSIDERED_COLORS = ['#224364', '#497c98', '#79aabe'];
@@ -198,45 +200,46 @@ class Reconsidered extends PureComponent {
     render() {
         return (
 
-            <div style={{ width: '100%', height: '80%'}}>
-            <ResponsiveContainer>
-                <PieChart className={"halfpie"}>
-                    <Pie
-                        data={reconsideredData}
-                        startAngle={180}
-                        endAngle={0}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-                        outerRadius={150}
-                        innerRadius={60}
-                        fill="#8884d8"
-                        dataKey="value"
-                    >
-                        {reconsideredData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={RECONSIDERED_COLORS[index % RECONSIDERED_COLORS.length]} />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+            <div style={{width: '100%', height: '80%'}}>
+                <ResponsiveContainer>
+                    <PieChart className={"halfpie"}>
+                        <Pie
+                            data={reconsideredData}
+                            startAngle={180}
+                            endAngle={0}
+                            cx="50%"
+                            cy="50%"
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={150}
+                            innerRadius={60}
+                            fill="#8884d8"
+                            dataKey="value"
+                        >
+                            {reconsideredData.map((entry, index) => (
+                                <Cell key={`cell-${index}`}
+                                      fill={RECONSIDERED_COLORS[index % RECONSIDERED_COLORS.length]}/>
+                            ))}
+                        </Pie>
+                        <Tooltip/>
+                        <Legend/>
+                    </PieChart>
+                </ResponsiveContainer>
             </div>
         );
     }
 }
 
 const decCategorizedData1 = [
-    { name: 'finance', value: 60 },
-    { name: 'tech', value: 15 },
-    { name: 'marketing', value: 25 },
+    {name: 'finance', value: 60},
+    {name: 'tech', value: 15},
+    {name: 'marketing', value: 25},
 ];
 
 const decCategorizedData2 = [
-    { name: 'finance', value: 40 },
-    { name: 'tech', value: 30 },
-    { name: 'marketing', value: 30 },
+    {name: 'planning', value: 40},
+    {name: 'implementation', value: 30},
+    {name: 'finalization', value: 30},
 ];
 
 const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#e46978'];
@@ -247,43 +250,49 @@ class DecisionCategories extends PureComponent {
     };
 
     handleDatasetChange = (event) => {
-        this.setState({ selectedDataset: event.target.value });
+        this.setState({selectedDataset: event.target.value});
     };
+
     render() {
-        const { selectedDataset } = this.state;
+        const {selectedDataset} = this.state;
         const data = selectedDataset === 'dataset1' ? decCategorizedData1 : decCategorizedData2;
 
         return (
-
-            <div style={{ width: '100%', height: '80%'}}>
-                <div className="dropdown-container">
-                    <label htmlFor="dataset-select">Per project domain </label>
-                    <select id="dataset-select" onChange={this.handleDatasetChange} value={selectedDataset}>
-                        <option value="dataset1">Dataset 1</option>
-                        <option value="dataset2">Dataset 2</option>
-                    </select>
+            <div className={"fullsize"}>
+                <div className="header">
+                    <h2>Biased decisions <br/>categorized</h2>
+                    <div className="dropdown-container">
+                        <select id="dataset-select" onChange={this.handleDatasetChange} value={selectedDataset}>
+                            <option value="dataset1">per project domain</option>
+                            <option value="dataset2">per project stage</option>
+                        </select>
+                    </div>
+                    <InfoButton title="What is this?"
+                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
                 </div>
-            <ResponsiveContainer>
-                <PieChart>
-                    <Pie
-                        data={data}
-                        cx="50%"
-                        cy="50%"
-                        labelLine={false}
-                        label={renderCustomizedLabel}
-                        outerRadius={150}
-                        innerRadius={60}
-                        fill="#8884d8"
-                        dataKey="value"
-                    >
-                        {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={DEC_CAT_COLORS[index % DEC_CAT_COLORS.length]} />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+                <div style={{width: '100%', height: '80%'}}>
+                    <ResponsiveContainer>
+                        <PieChart>
+                            <Pie
+                                data={data}
+                                cx="50%"
+                                cy="50%"
+                                labelLine={false}
+                                label={renderCustomizedLabel}
+                                outerRadius={150}
+                                innerRadius={60}
+                                fill="#8884d8"
+                                dataKey="value"
+                            >
+                                {data.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={DEC_CAT_COLORS[index % DEC_CAT_COLORS.length]}/>
+                                ))}
+                            </Pie>
+                            <Tooltip/>
+                            <Legend/>
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
         );
     }
@@ -359,7 +368,8 @@ const InfoBox = () => {
                     <button onClick={nextBias}>&#9654;</button>
                 </div>
 
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                <InfoButton title="What is this?"
+                            tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
             </div>
             <div className="content">
                 <div className="section">
@@ -498,7 +508,8 @@ const ProjectList = () => {
         <div className="project-list-container">
             <div className="project-list-header">
                 <div className="project-list-row">
-                    <div className="project-list-cell sort-dv" onClick={handleSort}>Date {sortOrder === 'asc' ? '▲' : '▼'}</div>
+                    <div className="project-list-cell sort-dv"
+                         onClick={handleSort}>Date {sortOrder === 'asc' ? '▲' : '▼'}</div>
                     <div className="project-list-cell smaller">Project</div>
                     <div className="project-list-cell">Decision</div>
                     <div className="project-list-cell">Suspected Bias</div>
@@ -514,18 +525,20 @@ const ProjectList = () => {
                             <div className="bold project-list-cell smaller">{project.project}</div>
                             <div className="project-list-cell">{project.decision}</div>
                             <div className="project-list-cell">{project.suspectedBias.join(", ")}</div>
-                            <div className="project-list-cell ">{project.outcome} <br/>(<a href={project.reportLink}>see report</a>)</div>
+                            <div className="project-list-cell ">{project.outcome} <br/>(<a href={project.reportLink}>see
+                                report</a>)
+                            </div>
                             <div className="project-list-cell bigger">{project.comment}</div>
                         </div>
                     </div>
                 ))}
             </div>
-            {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose} />}
+            {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose}/>}
         </div>
     );
 };
 
-const ProjectDetail = ({ project, onClose }) => {
+const ProjectDetail = ({project, onClose}) => {
     return (
         <div className="modal">
             <div className="modal-content">
@@ -563,58 +576,58 @@ const InfoButton = ({title, tooltip}) => {
 const App = () => {
 
 
-  return (
-    <div className="container">
-        <div className="item timeline">
-            <div className="header">
-                <h2>Biased decisions over time</h2>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+    return (
+        <div className="container">
+            <div className="item timeline">
+                <div className="header">
+                    <h2>Biased decisions over time</h2>
+                    <InfoButton title="What is this?"
+                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                </div>
+
+                <TimeLine/>
+            </div>
+            <div className="item detailview">
+                <div className="header">
+                    <h2>Detail view: Biased project decisions</h2>
+                    <InfoButton title="What is this?"
+                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                </div>
+
+                <ProjectList/>
+            </div>
+            <div className="item biascount">
+                <AvgBias/>
+            </div>
+            <div className="item impact">
+                <ImpactStats/>
             </div>
 
-            <TimeLine/>
-        </div>
-        <div className="item detailview">
-            <div className="header">
-                <h2>Detail view: Biased project decisions</h2>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
-            </div>
+            <div className="item outcome">
+                <div className="header">
+                    <h2>Outcome of <br/>biased decisions</h2>
+                    <InfoButton title="What is this?"
+                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                </div>
 
-            <ProjectList />
-        </div>
-        <div className="item biascount">
-            <AvgBias/>
-        </div>
-        <div className="item impact">
-            <ImpactStats/>
-        </div>
-
-        <div className="item outcome">
-            <div className="header">
-                <h2>Outcome of <br/>biased decisions</h2>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                <Outcome/>
             </div>
-
-            <Outcome/>
-        </div>
-        <div className="item reconsidered">
-            <div className="header">
-                <h2>Decisions reconsidered</h2>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            <div className="item reconsidered">
+                <div className="header">
+                    <h2>Decisions reconsidered</h2>
+                    <InfoButton title="What is this?"
+                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                </div>
+                <Reconsidered/>
             </div>
-            <Reconsidered/>
-        </div>
-        <div className="item categorized">
-            <div className="header">
-                <h2>Biased decisions <br/>categorized</h2>
-                <InfoButton title="What is this?" tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            <div className="item categorized">
+                <DecisionCategories/>
             </div>
-            <DecisionCategories/>
+            <div className="item infobox">
+                <InfoBox/>
+            </div>
         </div>
-        <div className="item infobox">
-            <InfoBox />
-        </div>
-    </div>
-  );
+    );
 };
 
 

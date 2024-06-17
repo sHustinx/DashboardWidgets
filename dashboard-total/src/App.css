@@ -552,16 +552,23 @@ label {
 
 select {
   padding: 5px;
+  margin-left: 15px;
+  margin-top: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  font-size: 14px;
+  border-radius: 5px;
+  background-color: #d0d0d0;
+  font-size: 12px;
   cursor: pointer;
 }
 
 select:focus {
   outline: none;
-  border-color: #8884d8;
+  border-color: #ffffff;
 }
 
 /* dropdown end */
+
+.fullsize{
+  height: 90%;
+  width: 100%;
+}
