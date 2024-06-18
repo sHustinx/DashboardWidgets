@@ -57,8 +57,7 @@ body {
 }
 
 .container {
-  background-color: #f4f5fa;
-  height: 96vh;
+  height: 92.5vh;
   width: 98vw;
   padding: 2vh 1vw;
   display: grid;
@@ -73,6 +72,25 @@ body {
     "outcome outcome reconsidered reconsidered categorized categorized infobox infobox infobox";
 }
 
+.data-context-text{
+  height: 1.5vh;
+  font-size: 1.5vh;
+  margin: 0;
+  padding: 0;
+  padding-left: 1vw;
+  text-align: right;
+  font-style: italic;
+  color: #585859;
+  width: 98vw;
+  margin-top: -5px;
+}
+
+
+.screenfit{
+  height: 100vh;
+  width: 100vw;
+  background-color: #f4f5fa;
+}
 
 /*legend timeline*/
 
@@ -264,8 +282,12 @@ body {
   padding: 10px 15px;
   position: absolute;
   z-index: 5;
-  top: 125%; /* Position below the info icon */
+  top: 115%; /* Position below the info icon */
   left: 60%;
+}
+
+.t-t-left .tooltip{
+  margin-left: -220px;
 }
 
 .tooltip h4{

@@ -110,7 +110,7 @@ const timeData2 = [
 const ImpactStats = () => {
     return (
         <div>
-            <div className=" header">
+            <div className="t-t-left header">
                 <h3 className="">Average financial <br/>impact</h3>
                 <InfoButton title="What is this?"
                             tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
@@ -126,7 +126,7 @@ const ImpactStats = () => {
 const AvgBias = () => {
     return (
         <div>
-            <div className=" header">
+            <div className="t-t-left header">
                 <h3 className="">Average bias <br/>count</h3>
                 <InfoButton title="What is this?"
                             tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
@@ -668,6 +668,7 @@ const App = () => {
 
 
     return (
+        <div className={"screenfit"}>
         <div className="container">
             <div className="item timeline">
                 <TimeLine/>
@@ -711,6 +712,8 @@ const App = () => {
             <div className="item infobox">
                 <InfoBox/>
             </div>
+        </div>
+        <div className={"data-context-text"}>All visualizations based on data collected between 01-01-2024 and 01-06-2024.</div>
         </div>
     );
 };
