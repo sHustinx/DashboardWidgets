@@ -18,7 +18,7 @@ import {
 } from 'recharts';
 
 
-const timeData = [
+const timeData1 = [
     {
         name: 'January',
         'all decisions': 7,
@@ -62,7 +62,50 @@ const timeData = [
         'biased decisions w. negative outcome': 2
     },
 ];
-
+const timeData2 = [
+    {
+        name: 'January',
+        'all decisions': 7,
+        'biased decisions': 1,
+        'biased decisions w. negative outcome': 1
+    },
+    {
+        name: 'February',
+        'all decisions': 6,
+        'biased decisions': 5,
+        'biased decisions w. negative outcome': 4
+    },
+    {
+        name: 'March',
+        'all decisions': 6,
+        'biased decisions': 5,
+        'biased decisions w. negative outcome': 3
+    },
+    {
+        name: 'April',
+        'all decisions': 7,
+        'biased decisions': 6,
+        'biased decisions w. negative outcome': 5
+    },
+    {
+        name: 'May',
+        'all decisions': 5,
+        'biased decisions': 5,
+        'biased decisions w. negative outcome': 2
+    },
+    {
+        name: 'June',
+        'all decisions': 6,
+        'biased decisions': 5,
+        'biased decisions w. negative outcome': 0
+    },
+    {
+        name: 'July',
+        'all decisions': 7,
+        'biased decisions': 4,
+        'biased decisions w. negative outcome': 2
+    },
+];
 
 const ImpactStats = () => {
     return (
@@ -100,34 +143,49 @@ const AvgBias = () => {
 
 class TimeLine extends PureComponent {
 
-    // todo: add filter function;
+    state = {
+        selectedDataset: 'dataset1',
+    };
+
+    handleDatasetChange = (event) => {
+        this.setState({ selectedDataset: event.target.value });
+    };
+
     render() {
+        const { selectedDataset } = this.state;
+        const data = selectedDataset === 'dataset1' ? timeData1 : timeData2;
         return (
-            <ResponsiveContainer width="95%" height="80%">
-                <AreaChart
-                    width={500}
-                    height={300}
-                    data={timeData}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
-                >
-                    <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="name"/>
-                    <YAxis label={{value: 'decisions', angle: -90, position: 'insideLeft'}}/>
-                    <Tooltip/>
-                    <Legend iconType={"circle"}/>
-                    <Area type="linear" dataKey="all decisions" stroke="#c4def6" strokeDasharray="5 5" fill="#c4def6"
-                          activeDot={{r: 8}}/>
-                    <Area type="linear" dataKey="biased decisions" stroke="#85bde0" strokeDasharray="5 5"
-                          fill="#85bde0"/>
-                    <Area type="linear" dataKey="biased decisions w. negative outcome" strokeDasharray="5 5"
-                          stroke="#5d93be" fill="#5d93be"/>
-                </AreaChart>
-            </ResponsiveContainer>
+            <div className={"fullsize"}>
+                <div className="header">
+                    <h2>Biased decisions over time</h2>
+                    <div className={"timeline-header-pos"}>
+                        <div className="dropdown-container">
+                            <select id="timeline-dataset-select" onChange={this.handleDatasetChange} value={selectedDataset}>
+                                <option value="dataset1">all projects</option>
+                                <option value="dataset2">tech projects</option>
+                            </select>
+                        </div>
+                        <InfoButton title="What is this?"
+                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                    </div>
+                </div>
+
+                <ResponsiveContainer width="95%" height="80%">
+                    <AreaChart
+                        data={data}
+                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis label={{ value: 'decisions', angle: -90, position: 'insideLeft' }} />
+                        <Tooltip />
+                        <Legend iconType="circle" />
+                        <Area type="linear" dataKey="all decisions" stroke="#c4def6" strokeDasharray="5 5" fill="#c4def6" activeDot={{ r: 8 }} />
+                        <Area type="linear" dataKey="biased decisions" stroke="#85bde0" strokeDasharray="5 5" fill="#85bde0" />
+                        <Area type="linear" dataKey="biased decisions w. negative outcome" strokeDasharray="5 5" stroke="#5d93be" fill="#5d93be" />
+                    </AreaChart>
+                </ResponsiveContainer>
+            </div>
         );
     }
 }
@@ -260,7 +318,7 @@ class DecisionCategories extends PureComponent {
         return (
             <div className={"fullsize"}>
                 <div className="header">
-                    <h2>Biased decisions <br/>categorized</h2>
+                    <h2>Biased decisions categorized</h2>
                     <div className="dropdown-container">
                         <select id="dataset-select" onChange={this.handleDatasetChange} value={selectedDataset}>
                             <option value="dataset1">per project domain</option>
@@ -579,12 +637,6 @@ const App = () => {
     return (
         <div className="container">
             <div className="item timeline">
-                <div className="header">
-                    <h2>Biased decisions over time</h2>
-                    <InfoButton title="What is this?"
-                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
-                </div>
-
                 <TimeLine/>
             </div>
             <div className="item detailview">
