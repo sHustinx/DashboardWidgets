@@ -538,8 +538,15 @@ const projectData = [
     },
 ];
 
+const biasInfo = {
+    "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias that causes people to continue an endeavor, or continue consuming or pursuing an option, if they’ve invested time or money or some resource into it, even when it’s clear that it’s no longer viable.",
+    "risk-seeking behaviour": "Risk-seeking behavior refers to the tendency to engage in behaviors that have the potential to be harmful or dangerous, yet at the same time provide the opportunity for some kind of outcome that can be perceived as positive.",
+    "loss aversion": "Loss aversion is a cognitive bias that describes why, for individuals, the pain of losing is psychologically twice as powerful as the pleasure of gaining."
+};
+
 const ProjectList = () => {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedBias, setSelectedBias] = useState(null);
     const [sortOrder, setSortOrder] = useState('asc');
     const [sortedData, setSortedData] = useState(projectData);
 
@@ -547,8 +554,14 @@ const ProjectList = () => {
         setSelectedProject(project);
     };
 
+    const handleBiasClick = (bias, event) => {
+        event.stopPropagation();
+        setSelectedBias(bias);
+    };
+
     const handleClose = () => {
         setSelectedProject(null);
+        setSelectedBias(null);
     };
 
     const handleSort = () => {
@@ -582,7 +595,13 @@ const ProjectList = () => {
                             <div className="bold project-list-cell">{project.date}</div>
                             <div className="bold project-list-cell smaller">{project.project}</div>
                             <div className="project-list-cell">{project.decision}</div>
-                            <div className="project-list-cell">{project.suspectedBias.join(", ")}</div>
+                            <div className="project-list-cell">
+                                {project.suspectedBias.map((bias, idx) => (
+                                    <div key={idx}>
+                                        <a href="#" onClick={(e) => handleBiasClick(bias, e)}>{bias}</a>
+                                    </div>
+                                ))}
+                            </div>
                             <div className="project-list-cell ">{project.outcome} <br/>(<a href={project.reportLink}>see
                                 report</a>)
                             </div>
@@ -592,6 +611,7 @@ const ProjectList = () => {
                 ))}
             </div>
             {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose}/>}
+            {selectedBias && <BiasDetail bias={selectedBias} onClose={handleClose} />}
         </div>
     );
 };
@@ -608,6 +628,19 @@ const ProjectDetail = ({project, onClose}) => {
                 <p><strong>Suspected Bias:</strong> {project.suspectedBias.join(", ")}</p>
                 <p><strong>Outcome:</strong> {project.outcome} (<a href={project.reportLink}>see report</a>)</p>
                 <p><strong>Comment:</strong> {project.comment}</p>
+            </div>
+        </div>
+    );
+};
+
+const BiasDetail = ({ bias, onClose }) => {
+    return (
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={onClose}>&times;</span>
+                <h2>Bias Information</h2>
+                <p><strong>Bias:</strong> {bias}</p>
+                <p>{biasInfo[bias]}</p>
             </div>
         </div>
     );
