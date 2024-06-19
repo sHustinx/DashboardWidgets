@@ -3,9 +3,8 @@ import "./App.css";
 import "monday-ui-react-core/dist/main.css";
 
 import {
-    PieChart, Pie,
-    LineChart,
-    Line,
+    PieChart,
+    Pie,
     XAxis,
     YAxis,
     CartesianGrid,
@@ -140,6 +139,26 @@ const AvgBias = () => {
     );
 }
 
+const TimelineTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+        const totalDecisions = payload.find(p => p.dataKey === 'all decisions')?.value || 0;
+        const biasedDecisions = payload.find(p => p.dataKey === 'biased decisions')?.value || 0;
+        const negativeOutcomeDecisions = payload.find(p => p.dataKey === 'biased decisions w. negative outcome')?.value || 0;
+
+        return (
+            <div className="custom-tooltip">
+                <p className="label">{label}</p>
+                <p className="total-decisions"><strong>{totalDecisions}</strong> project decisions made in total:</p>
+                <ul>
+                    <li><strong>{biasedDecisions}</strong> of them had a <strong>suspected bias</strong></li>
+                    <li><strong>{negativeOutcomeDecisions}</strong> of them had a <strong>suspected bias</strong> and <br/>a <strong>negative outcome</strong></li>
+                </ul>
+            </div>
+        );
+    }
+
+    return null;
+};
 
 class TimeLine extends PureComponent {
 
@@ -178,11 +197,11 @@ class TimeLine extends PureComponent {
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis label={{ value: 'decisions', angle: -90, position: 'insideLeft' }} />
-                        <Tooltip />
+                        <Tooltip content={<TimelineTooltip />} />
                         <Legend iconType="circle" />
-                        <Area type="linear" dataKey="all decisions" stroke="#c4def6" strokeDasharray="5 5" fill="#c4def6" activeDot={{ r: 8 }} />
-                        <Area type="linear" dataKey="biased decisions" stroke="#85bde0" strokeDasharray="5 5" fill="#85bde0" />
-                        <Area type="linear" dataKey="biased decisions w. negative outcome" strokeDasharray="5 5" stroke="#5d93be" fill="#5d93be" />
+                        <Area type="linear" dataKey="all decisions" stroke="#A1C0E2"  fill="#A1C0E2" activeDot={{fill:'orange', stroke: '#414141', r: 4 }} />
+                        <Area type="linear" dataKey="biased decisions" stroke="#5FA0C6" fill="#5FA0C6" activeDot={{fill:'orange', stroke: '#414141', r: 4 }}/>
+                        <Area type="linear" dataKey="biased decisions w. negative outcome"  stroke="#5d93be" fill="#5d93be" activeDot={{fill:'orange', stroke: '#414141', r: 4 }}/>
                     </AreaChart>
                 </ResponsiveContainer>
             </div>

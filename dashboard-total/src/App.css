@@ -116,7 +116,50 @@ body {
   padding-right: 5px;
 }
 
-/*legend timeline end*/
+.recharts-area .recharts-layer path{
+  fill-opacity: 0.8;
+  z-index: -1;
+}
+
+.recharts-area .recharts-layer .recharts-area-curve{
+  stroke: #414141;
+}
+
+/* Custom tooltip styles */
+.custom-tooltip {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: #4e4e4f;
+  font-size: small;
+}
+
+.custom-tooltip .label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  color: #32586f;
+}
+
+.custom-tooltip .total-decisions {
+  margin-bottom: 5px;
+}
+
+.custom-tooltip ul {
+  padding-left: 50px;
+  list-style-type: disc;
+}
+
+.custom-tooltip ul li {
+  margin-bottom: 5px;
+}
+
+/* custom timeline tooltip end */
+
+
+/*legend timeline end   */
 
 /* impactstats*/
 
