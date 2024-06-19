@@ -16,6 +16,7 @@ import {
     Area
 } from 'recharts';
 
+/* DATA */
 
 const timeData1 = [
     {
@@ -106,6 +107,177 @@ const timeData2 = [
     },
 ];
 
+const outcomeData = [
+    {name: 'undecided', value: 60},
+    {name: 'negative', value: 20},
+    {name: 'positive', value: 20},
+];
+
+const reconsideredData = [
+    {name: 'not reconsidered', value: 59},
+    {name: 'reconsidered and not changed', value: 26},
+    {name: 'reconsidered and changed', value: 15},
+];
+
+const decCategorizedData1 = [
+    {name: 'finance', value: 60},
+    {name: 'tech', value: 15},
+    {name: 'marketing', value: 25},
+];
+
+const decCategorizedData2 = [
+    {name: 'planning', value: 40},
+    {name: 'implementation', value: 30},
+    {name: 'finalization', value: 30},
+];
+
+
+const biases = [
+    {
+        title: 'Risk Seeking Behaviour',
+        whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
+        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. For more info, click here.',
+        example: {
+            optionOne: {
+                title: 'OPTION ONE',
+                details: [
+                    '50% chance to get 100€',
+                    '50% chance to get nothing'
+                ],
+                description: 'Risk-seeking decision makers tend to prefer this option, although it is financially irrational.'
+            },
+            optionTwo: {
+                title: 'OPTION TWO',
+                details: [
+                    '100% chance of 50€'
+                ],
+                description: 'Although this is the financially rational choice, this option is avoided by risk-seeking individuals.'
+            }
+        }
+    },
+    {
+        title: 'Risk Seeking Behaviour 2',
+        whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
+        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. For more info, click here.',
+        example: {
+            optionOne: {
+                title: 'OPTION ONE',
+                details: [
+                    '50% chance to get 100€',
+                    '50% chance to get nothing'
+                ],
+                description: 'Risk-seeking decision makers tend to prefer this option, although it is financially irrational.'
+            },
+            optionTwo: {
+                title: 'OPTION TWO',
+                details: [
+                    '100% chance of 50€'
+                ],
+                description: 'Although this is the financially rational choice, this option is avoided by risk-seeking individuals.'
+            }
+        }
+    }
+];
+
+
+const projectData = [
+    {
+        date: "18-12-2023",
+        project: "137b",
+        decision: "Continue project 137b",
+        details: "Decided to continue 137b after a long delay (6 mo.+)",
+        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
+        outcome: "negative",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+    {
+        date: "5-11-2023",
+        project: "12a",
+        decision: "Kill project 12a",
+        details: "Decided to discontinue 12a early after increased costs",
+        suspectedBias: ["loss aversion"],
+        outcome: "negative",
+        comment: "previous financial losses in multiple other projects",
+        reportLink: "#",
+    },
+    {
+        date: "1-10-2023",
+        project: "7c",
+        decision: "Continue project 7c",
+        details: "Decided to continue 7c after increased costs",
+        suspectedBias: ["sunk-cost fallacy"],
+        outcome: "positive",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+    {
+        date: "18-12-2023",
+        project: "137b",
+        decision: "Continue project 137b",
+        details: "Decided to continue 137b after a long delay (6 mo.+)",
+        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
+        outcome: "negative",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+    {
+        date: "5-11-2023",
+        project: "12a",
+        decision: "Kill project 12a",
+        details: "Decided to discontinue 12a early after increased costs",
+        suspectedBias: ["loss aversion"],
+        outcome: "negative",
+        comment: "previous financial losses in multiple other projects",
+        reportLink: "#",
+    },
+    {
+        date: "1-10-2023",
+        project: "7c",
+        decision: "Continue project 7c",
+        details: "Decided to continue 7c after increased costs",
+        suspectedBias: ["sunk-cost fallacy"],
+        outcome: "positive",
+        comment: "high previous financial- and time-related investments",
+        reportLink: "#",
+    },
+];
+
+const biasInfo = {
+    "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias that causes people to continue an endeavor, or continue consuming or pursuing an option, if they’ve invested time or money or some resource into it, even when it’s clear that it’s no longer viable.",
+    "risk-seeking behaviour": "Risk-seeking behavior refers to the tendency to engage in behaviors that have the potential to be harmful or dangerous, yet at the same time provide the opportunity for some kind of outcome that can be perceived as positive.",
+    "loss aversion": "Loss aversion is a cognitive bias that describes why, for individuals, the pain of losing is psychologically twice as powerful as the pleasure of gaining."
+};
+
+
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, percent, index}) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+        <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+            {`${(percent * 100).toFixed(0)}%`}
+        </text>
+    );
+};
+
+/* DATA END */
+
+/* COLORS */
+
+const OUTCOME_COLORS = ['#4b4c57', '#e04d44', '#00a964'];
+
+const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#e46978'];
+
+const RECONSIDERED_COLORS = ['#224364', '#497c98', '#79aabe'];
+
+
+/* COLORS END */
+
+/* COMPONENTS */
+
 const ImpactStats = () => {
     return (
         <div>
@@ -139,7 +311,7 @@ const AvgBias = () => {
     );
 }
 
-const TimelineTooltip = ({ active, payload, label }) => {
+const TimelineTooltip = ({active, payload, label}) => {
     if (active && payload && payload.length) {
         const totalDecisions = payload.find(p => p.dataKey === 'all decisions')?.value || 0;
         const biasedDecisions = payload.find(p => p.dataKey === 'biased decisions')?.value || 0;
@@ -151,7 +323,8 @@ const TimelineTooltip = ({ active, payload, label }) => {
                 <p className="total-decisions"><strong>{totalDecisions}</strong> project decisions made in total:</p>
                 <ul>
                     <li><strong>{biasedDecisions}</strong> of them had a <strong>suspected bias</strong></li>
-                    <li><strong>{negativeOutcomeDecisions}</strong> of them had a <strong>suspected bias</strong> and <br/>a <strong>negative outcome</strong></li>
+                    <li><strong>{negativeOutcomeDecisions}</strong> of them had a <strong>suspected
+                        bias</strong> and <br/>a <strong>negative outcome</strong></li>
                 </ul>
             </div>
         );
@@ -160,6 +333,7 @@ const TimelineTooltip = ({ active, payload, label }) => {
     return null;
 };
 
+
 class TimeLine extends PureComponent {
 
     state = {
@@ -167,11 +341,11 @@ class TimeLine extends PureComponent {
     };
 
     handleDatasetChange = (event) => {
-        this.setState({ selectedDataset: event.target.value });
+        this.setState({selectedDataset: event.target.value});
     };
 
     render() {
-        const { selectedDataset } = this.state;
+        const {selectedDataset} = this.state;
         const data = selectedDataset === 'dataset1' ? timeData1 : timeData2;
         return (
             <div className={"fullsize"}>
@@ -179,7 +353,8 @@ class TimeLine extends PureComponent {
                     <h2>Biased decisions over time</h2>
                     <div className={"timeline-header-pos"}>
                         <div className="dropdown-container">
-                            <select id="timeline-dataset-select" onChange={this.handleDatasetChange} value={selectedDataset}>
+                            <select id="timeline-dataset-select" onChange={this.handleDatasetChange}
+                                    value={selectedDataset}>
                                 <option value="dataset1">all projects</option>
                                 <option value="dataset2">tech projects</option>
                             </select>
@@ -192,16 +367,19 @@ class TimeLine extends PureComponent {
                 <ResponsiveContainer width="95%" height="80%">
                     <AreaChart
                         data={data}
-                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                        margin={{top: 5, right: 30, left: 20, bottom: 5}}
                     >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis label={{ value: 'decisions', angle: -90, position: 'insideLeft' }} />
-                        <Tooltip content={<TimelineTooltip />} />
-                        <Legend iconType="circle" />
-                        <Area type="linear" dataKey="all decisions" stroke="#A1C0E2"  fill="#A1C0E2" activeDot={{fill:'orange', stroke: '#414141', r: 4 }} />
-                        <Area type="linear" dataKey="biased decisions" stroke="#5FA0C6" fill="#5FA0C6" activeDot={{fill:'orange', stroke: '#414141', r: 4 }}/>
-                        <Area type="linear" dataKey="biased decisions w. negative outcome"  stroke="#5d93be" fill="#5d93be" activeDot={{fill:'orange', stroke: '#414141', r: 4 }}/>
+                        <CartesianGrid strokeDasharray="3 3"/>
+                        <XAxis dataKey="name"/>
+                        <YAxis label={{value: 'decisions', angle: -90, position: 'insideLeft'}}/>
+                        <Tooltip content={<TimelineTooltip/>}/>
+                        <Legend iconType="circle"/>
+                        <Area type="linear" dataKey="all decisions" stroke="#A1C0E2" fill="#A1C0E2"
+                              activeDot={{fill: 'orange', stroke: '#414141', r: 4}}/>
+                        <Area type="linear" dataKey="biased decisions" stroke="#5FA0C6" fill="#5FA0C6"
+                              activeDot={{fill: 'orange', stroke: '#414141', r: 4}}/>
+                        <Area type="linear" dataKey="biased decisions w. negative outcome" stroke="#5d93be"
+                              fill="#5d93be" activeDot={{fill: 'orange', stroke: '#414141', r: 4}}/>
                     </AreaChart>
                 </ResponsiveContainer>
             </div>
@@ -209,31 +387,9 @@ class TimeLine extends PureComponent {
     }
 }
 
-
-const outcomeData = [
-    {name: 'undecided', value: 60},
-    {name: 'negative', value: 20},
-    {name: 'positive', value: 20},
-];
-
-const OUTCOME_COLORS = ['#4b4c57', '#e04d44', '#00a964'];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, percent, index}) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-    return (
-        <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-            {`${(percent * 100).toFixed(0)}%`}
-        </text>
-    );
-};
-
-const OutcomeTooltip = ({ active, payload }) => {
+const OutcomeTooltip = ({active, payload}) => {
     if (active && payload && payload.length) {
-        const { name, value } = payload[0].payload;
+        const {name, value} = payload[0].payload;
         let description;
 
         switch (name) {
@@ -283,7 +439,7 @@ class Outcome extends PureComponent {
                                 <Cell key={`cell-${index}`} fill={OUTCOME_COLORS[index % OUTCOME_COLORS.length]}/>
                             ))}
                         </Pie>
-                        <Tooltip content={<OutcomeTooltip />} />
+                        <Tooltip content={<OutcomeTooltip/>}/>
                         <Legend/>
                     </PieChart>
                 </ResponsiveContainer>
@@ -292,18 +448,9 @@ class Outcome extends PureComponent {
     }
 }
 
-
-const reconsideredData = [
-    {name: 'not reconsidered', value: 59},
-    {name: 'reconsidered and not changed', value: 26},
-    {name: 'reconsidered and changed', value: 15},
-];
-
-const RECONSIDERED_COLORS = ['#224364', '#497c98', '#79aabe'];
-
-const ReconsideredTooltip = ({ active, payload }) => {
+const ReconsideredTooltip = ({active, payload}) => {
     if (active && payload && payload.length) {
-        const { name, value } = payload[0].payload;
+        const {name, value} = payload[0].payload;
         let description;
 
         switch (name) {
@@ -358,7 +505,7 @@ class Reconsidered extends PureComponent {
                                       fill={RECONSIDERED_COLORS[index % RECONSIDERED_COLORS.length]}/>
                             ))}
                         </Pie>
-                        <Tooltip content={<ReconsideredTooltip />} />
+                        <Tooltip content={<ReconsideredTooltip/>}/>
                         <Legend/>
                     </PieChart>
                 </ResponsiveContainer>
@@ -367,23 +514,9 @@ class Reconsidered extends PureComponent {
     }
 }
 
-const decCategorizedData1 = [
-    {name: 'finance', value: 60},
-    {name: 'tech', value: 15},
-    {name: 'marketing', value: 25},
-];
-
-const decCategorizedData2 = [
-    {name: 'planning', value: 40},
-    {name: 'implementation', value: 30},
-    {name: 'finalization', value: 30},
-];
-
-const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#e46978'];
-
-const DecisionCategoriesTooltip = ({ active, payload }) => {
+const DecisionCategoriesTooltip = ({active, payload}) => {
     if (active && payload && payload.length) {
-        const { name, value } = payload[0].payload;
+        const {name, value} = payload[0].payload;
         let description;
 
         switch (name) {
@@ -465,7 +598,7 @@ class DecisionCategories extends PureComponent {
                                     <Cell key={`cell-${index}`} fill={DEC_CAT_COLORS[index % DEC_CAT_COLORS.length]}/>
                                 ))}
                             </Pie>
-                            <Tooltip content={<DecisionCategoriesTooltip />} />
+                            <Tooltip content={<DecisionCategoriesTooltip/>}/>
                             <Legend/>
                         </PieChart>
                     </ResponsiveContainer>
@@ -474,54 +607,6 @@ class DecisionCategories extends PureComponent {
         );
     }
 }
-
-
-const biases = [
-    {
-        title: 'Risk Seeking Behaviour',
-        whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
-        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. For more info, click here.',
-        example: {
-            optionOne: {
-                title: 'OPTION ONE',
-                details: [
-                    '50% chance to get 100€',
-                    '50% chance to get nothing'
-                ],
-                description: 'Risk-seeking decision makers tend to prefer this option, although it is financially irrational.'
-            },
-            optionTwo: {
-                title: 'OPTION TWO',
-                details: [
-                    '100% chance of 50€'
-                ],
-                description: 'Although this is the financially rational choice, this option is avoided by risk-seeking individuals.'
-            }
-        }
-    },
-    {
-        title: 'Risk Seeking Behaviour 2',
-        whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
-        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. For more info, click here.',
-        example: {
-            optionOne: {
-                title: 'OPTION ONE',
-                details: [
-                    '50% chance to get 100€',
-                    '50% chance to get nothing'
-                ],
-                description: 'Risk-seeking decision makers tend to prefer this option, although it is financially irrational.'
-            },
-            optionTwo: {
-                title: 'OPTION TWO',
-                details: [
-                    '100% chance of 50€'
-                ],
-                description: 'Although this is the financially rational choice, this option is avoided by risk-seeking individuals.'
-            }
-        }
-    }
-];
 
 const InfoBox = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -594,75 +679,6 @@ const InfoBox = () => {
     );
 };
 
-const projectData = [
-    {
-        date: "18-12-2023",
-        project: "137b",
-        decision: "Continue project 137b",
-        details: "Decided to continue 137b after a long delay (6 mo.+)",
-        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
-        outcome: "negative",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
-    {
-        date: "5-11-2023",
-        project: "12a",
-        decision: "Kill project 12a",
-        details: "Decided to discontinue 12a early after increased costs",
-        suspectedBias: ["loss aversion"],
-        outcome: "negative",
-        comment: "previous financial losses in multiple other projects",
-        reportLink: "#",
-    },
-    {
-        date: "1-10-2023",
-        project: "7c",
-        decision: "Continue project 7c",
-        details: "Decided to continue 7c after increased costs",
-        suspectedBias: ["sunk-cost fallacy"],
-        outcome: "positive",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
-    {
-        date: "18-12-2023",
-        project: "137b",
-        decision: "Continue project 137b",
-        details: "Decided to continue 137b after a long delay (6 mo.+)",
-        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
-        outcome: "negative",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
-    {
-        date: "5-11-2023",
-        project: "12a",
-        decision: "Kill project 12a",
-        details: "Decided to discontinue 12a early after increased costs",
-        suspectedBias: ["loss aversion"],
-        outcome: "negative",
-        comment: "previous financial losses in multiple other projects",
-        reportLink: "#",
-    },
-    {
-        date: "1-10-2023",
-        project: "7c",
-        decision: "Continue project 7c",
-        details: "Decided to continue 7c after increased costs",
-        suspectedBias: ["sunk-cost fallacy"],
-        outcome: "positive",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
-];
-
-const biasInfo = {
-    "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias that causes people to continue an endeavor, or continue consuming or pursuing an option, if they’ve invested time or money or some resource into it, even when it’s clear that it’s no longer viable.",
-    "risk-seeking behaviour": "Risk-seeking behavior refers to the tendency to engage in behaviors that have the potential to be harmful or dangerous, yet at the same time provide the opportunity for some kind of outcome that can be perceived as positive.",
-    "loss aversion": "Loss aversion is a cognitive bias that describes why, for individuals, the pain of losing is psychologically twice as powerful as the pleasure of gaining."
-};
-
 const ProjectList = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [selectedBias, setSelectedBias] = useState(null);
@@ -730,7 +746,7 @@ const ProjectList = () => {
                 ))}
             </div>
             {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose}/>}
-            {selectedBias && <BiasDetail bias={selectedBias} onClose={handleClose} />}
+            {selectedBias && <BiasDetail bias={selectedBias} onClose={handleClose}/>}
         </div>
     );
 };
@@ -752,7 +768,7 @@ const ProjectDetail = ({project, onClose}) => {
     );
 };
 
-const BiasDetail = ({ bias, onClose }) => {
+const BiasDetail = ({bias, onClose}) => {
     return (
         <div className="modal">
             <div className="modal-content">
@@ -782,60 +798,67 @@ const InfoButton = ({title, tooltip}) => {
     );
 };
 
+/* COMPONENTS END */
 
+
+/* APP */
 const App = () => {
 
 
     return (
         <div className={"screenfit"}>
-        <div className="container">
-            <div className="item timeline">
-                <TimeLine/>
-            </div>
-            <div className="item detailview">
-                <div className="header">
-                    <h2>Detail view: Biased project decisions</h2>
-                    <InfoButton title="What is this?"
-                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+            <div className="container">
+                <div className="item timeline">
+                    <TimeLine/>
+                </div>
+                <div className="item detailview">
+                    <div className="header">
+                        <h2>Detail view: Biased project decisions</h2>
+                        <InfoButton title="What is this?"
+                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                    </div>
+
+                    <ProjectList/>
+                </div>
+                <div className="item biascount">
+                    <AvgBias/>
+                </div>
+                <div className="item impact">
+                    <ImpactStats/>
                 </div>
 
-                <ProjectList/>
-            </div>
-            <div className="item biascount">
-                <AvgBias/>
-            </div>
-            <div className="item impact">
-                <ImpactStats/>
-            </div>
+                <div className="item outcome">
+                    <div className="header">
+                        <h2>Outcome of <br/>biased decisions</h2>
+                        <InfoButton title="What is this?"
+                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                    </div>
 
-            <div className="item outcome">
-                <div className="header">
-                    <h2>Outcome of <br/>biased decisions</h2>
-                    <InfoButton title="What is this?"
-                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                    <Outcome/>
                 </div>
-
-                <Outcome/>
-            </div>
-            <div className="item reconsidered">
-                <div className="header">
-                    <h2>Decisions reconsidered</h2>
-                    <InfoButton title="What is this?"
-                                tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                <div className="item reconsidered">
+                    <div className="header">
+                        <h2>Decisions reconsidered</h2>
+                        <InfoButton title="What is this?"
+                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                    </div>
+                    <Reconsidered/>
                 </div>
-                <Reconsidered/>
+                <div className="item categorized">
+                    <DecisionCategories/>
+                </div>
+                <div className="item infobox">
+                    <InfoBox/>
+                </div>
             </div>
-            <div className="item categorized">
-                <DecisionCategories/>
+            <div className={"data-context-text"}>All visualizations based on data collected between 01-01-2024 and
+                01-06-2024.
             </div>
-            <div className="item infobox">
-                <InfoBox/>
-            </div>
-        </div>
-        <div className={"data-context-text"}>All visualizations based on data collected between 01-01-2024 and 01-06-2024.</div>
         </div>
     );
 };
 
 
 export default App;
+
+/* APP END */
