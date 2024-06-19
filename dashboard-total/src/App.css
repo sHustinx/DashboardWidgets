@@ -569,14 +569,14 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 30%;
@@ -654,3 +654,97 @@ select:focus {
 .timeline-header-pos .dropdown-container {
     margin-right: 20px;
 }
+
+/* modal project details */
+
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.tag {
+    color: #fff;
+    background-color: #0f6d97;
+    padding: 8px 20px;
+    margin: 5px 5px 0 0;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+/*
+.over-time {
+    background-color: #ff9800;
+}
+
+.over-budget {
+    background-color: #f44336;
+}
+
+.high-priority {
+    background-color: #9c27b0;
+}
+
+.tech-domain {
+    background-color: #3f51b5;
+}
+
+.team {
+    background-color: #4caf50;
+}
+
+.undecided {
+    background-color: #607d8b;
+}
+*/
+
+.glance-tooltip-content.ms {
+    left: auto;
+    margin: 0;
+    bottom: 95%;
+}
+
+
+/* at a glance tooltips */
+
+.glance-tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+.glance-tooltip-content {
+    visibility: visible;
+    width: 150px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the text */
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0.9;
+    font-weight: lighter;
+}
+
+.glance-tooltip-content::after {
+    content: '';
+    position: absolute;
+
+    top: 100%; /* Arrow at the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+
+
+/* at a glance tooltips end */

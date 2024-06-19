@@ -190,57 +190,14 @@ const projectData = [
         outcome: "negative",
         comment: "high previous financial- and time-related investments",
         reportLink: "#",
+        description: "This project integrates the current CMS system with the new interface of Company 123 for their customer service.",
+        context: "The project is currently in budget (1k € of 45k budget left), but has exceeded the allocated time-frame by 3 months (total: 3 mo. delay). The involved stakeholders (financial services and Company 123) have asked for a re-evaluation of the project.",
+        milestones: ["M1", "M2", "M3", "M4"],
+        totalMilestones: 6,
+        currentMilestone: 4,
+        tags: ["tech-domain", "undecided", "over-time", "over-budget", "high-priority", "team 39b"],
     },
-    {
-        date: "5-11-2023",
-        project: "12a",
-        decision: "Kill project 12a",
-        details: "Decided to discontinue 12a early after increased costs",
-        suspectedBias: ["loss aversion"],
-        outcome: "negative",
-        comment: "previous financial losses in multiple other projects",
-        reportLink: "#",
-    },
-    {
-        date: "1-10-2023",
-        project: "7c",
-        decision: "Continue project 7c",
-        details: "Decided to continue 7c after increased costs",
-        suspectedBias: ["sunk-cost fallacy"],
-        outcome: "positive",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
-    {
-        date: "18-12-2023",
-        project: "137b",
-        decision: "Continue project 137b",
-        details: "Decided to continue 137b after a long delay (6 mo.+)",
-        suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
-        outcome: "negative",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
-    {
-        date: "5-11-2023",
-        project: "12a",
-        decision: "Kill project 12a",
-        details: "Decided to discontinue 12a early after increased costs",
-        suspectedBias: ["loss aversion"],
-        outcome: "negative",
-        comment: "previous financial losses in multiple other projects",
-        reportLink: "#",
-    },
-    {
-        date: "1-10-2023",
-        project: "7c",
-        decision: "Continue project 7c",
-        details: "Decided to continue 7c after increased costs",
-        suspectedBias: ["sunk-cost fallacy"],
-        outcome: "positive",
-        comment: "high previous financial- and time-related investments",
-        reportLink: "#",
-    },
+
 ];
 
 const biasInfo = {
@@ -252,7 +209,7 @@ const biasInfo = {
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, percent, index}) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.35;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -733,7 +690,7 @@ const ProjectList = () => {
                             <div className="project-list-cell">
                                 {project.suspectedBias.map((bias, idx) => (
                                     <div key={idx}>
-                                        <a href="#" onClick={(e) => handleBiasClick(bias, e)}>{bias}</a>
+                                        <a href={project.reportLink} onClick={(e) => handleBiasClick(bias, e)}>{bias}</a>
                                     </div>
                                 ))}
                             </div>
@@ -751,18 +708,46 @@ const ProjectList = () => {
     );
 };
 
-const ProjectDetail = ({project, onClose}) => {
+const InfoTag = ({text, tooltipText, className}) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <div
+            className={`glance-tooltip-container ${className}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <span className="glance-tooltip-text">{text}</span>
+            {isHovered && <div className="glance-tooltip-content">{tooltipText}</div>}
+        </div>
+    );
+};
+
+
+const ProjectDetail = ({ project, onClose }) => {
     return (
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
-                <h2>Project {project.project}</h2>
+                <h2>Decision {project.project} (Tech Integration Project)</h2>
                 <p><strong>Date:</strong> {project.date}</p>
                 <p><strong>Decision:</strong> {project.decision}</p>
-                <p><strong>Details:</strong> {project.details}</p>
-                <p><strong>Suspected Bias:</strong> {project.suspectedBias.join(", ")}</p>
-                <p><strong>Outcome:</strong> {project.outcome} (<a href={project.reportLink}>see report</a>)</p>
-                <p><strong>Comment:</strong> {project.comment}</p>
+                <p><strong>Reasoning:</strong> {project.comment}</p>
+                <p><strong>Outcome:</strong> {project.outcome}: {project.details}</p>
+                <p><strong>Suspected Biases:</strong> {project.suspectedBias.join(", ")}</p>
+                <br/>
+                <p><strong>Project Description:</strong> {project.description}</p>
+                <p>{project.context}</p>
+                <p>Milestones ({project.currentMilestone}/{project.totalMilestones} completed)</p>
+                <br/>
+                <div className="project-at-a-glance">
+                    <p><strong>Project at a glance:</strong></p>
+                    <div className="tags">
+                        {project.tags.map((tag, index) => (
+                            <InfoTag key={index} tooltipText="text" className={`tag ${tag}`} text={tag.replace('-', ' ')}></InfoTag>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );
