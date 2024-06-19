@@ -156,6 +156,15 @@ body {
   margin-bottom: 5px;
 }
 
+.pie-tooltip.custom-tooltip .label{
+  color: #4e4e4f;
+}
+
+.pie-tooltip.custom-tooltip {
+  max-width: 150px;
+}
+
+
 /* custom timeline tooltip end */
 
 

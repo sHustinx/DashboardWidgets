@@ -211,9 +211,9 @@ class TimeLine extends PureComponent {
 
 
 const outcomeData = [
-    {name: 'undecided', value: 61},
-    {name: 'negative', value: 36},
-    {name: 'positive', value: 33},
+    {name: 'undecided', value: 60},
+    {name: 'negative', value: 20},
+    {name: 'positive', value: 20},
 ];
 
 const OUTCOME_COLORS = ['#4b4c57', '#e04d44', '#00a964'];
@@ -229,6 +229,36 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
             {`${(percent * 100).toFixed(0)}%`}
         </text>
     );
+};
+
+const OutcomeTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+        const { name, value } = payload[0].payload;
+        let description;
+
+        switch (name) {
+            case 'undecided':
+                description = 'These decisions are still pending.';
+                break;
+            case 'negative':
+                description = 'This includes financial- and time-related consequences.';
+                break;
+            case 'positive':
+                description = 'These decisions led to successful outcomes.';
+                break;
+            default:
+                description = '';
+        }
+
+        return (
+            <div className="custom-tooltip pie-tooltip">
+                <p className="label">{`${value}% of biased decisions lead to a ${name} outcome`}</p>
+                <p className="desc">{description}</p>
+            </div>
+        );
+    }
+
+    return null;
 };
 
 class Outcome extends PureComponent {
@@ -253,7 +283,7 @@ class Outcome extends PureComponent {
                                 <Cell key={`cell-${index}`} fill={OUTCOME_COLORS[index % OUTCOME_COLORS.length]}/>
                             ))}
                         </Pie>
-                        <Tooltip/>
+                        <Tooltip content={<OutcomeTooltip />} />
                         <Legend/>
                     </PieChart>
                 </ResponsiveContainer>
@@ -270,6 +300,36 @@ const reconsideredData = [
 ];
 
 const RECONSIDERED_COLORS = ['#224364', '#497c98', '#79aabe'];
+
+const ReconsideredTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+        const { name, value } = payload[0].payload;
+        let description;
+
+        switch (name) {
+            case 'not reconsidered':
+                description = 'Decisions that were not reconsidered.';
+                break;
+            case 'reconsidered and not changed':
+                description = 'Decisions that were reconsidered but not changed.';
+                break;
+            case 'reconsidered and changed':
+                description = 'Decisions that were reconsidered and changed.';
+                break;
+            default:
+                description = '';
+        }
+
+        return (
+            <div className="custom-tooltip pie-tooltip">
+                <p className="label">{`${value}% of decisions were ${name}`}</p>
+                <p className="desc">{description}</p>
+            </div>
+        );
+    }
+
+    return null;
+};
 
 
 class Reconsidered extends PureComponent {
@@ -298,7 +358,7 @@ class Reconsidered extends PureComponent {
                                       fill={RECONSIDERED_COLORS[index % RECONSIDERED_COLORS.length]}/>
                             ))}
                         </Pie>
-                        <Tooltip/>
+                        <Tooltip content={<ReconsideredTooltip />} />
                         <Legend/>
                     </PieChart>
                 </ResponsiveContainer>
@@ -320,6 +380,46 @@ const decCategorizedData2 = [
 ];
 
 const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#e46978'];
+
+const DecisionCategoriesTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+        const { name, value } = payload[0].payload;
+        let description;
+
+        switch (name) {
+            case 'finance':
+                description = 'Decisions related to financial aspects.';
+                break;
+            case 'tech':
+                description = 'Decisions related to technology.';
+                break;
+            case 'marketing':
+                description = 'Decisions related to marketing.';
+                break;
+            case 'planning':
+                description = 'Decisions made during the planning stage.';
+                break;
+            case 'implementation':
+                description = 'Decisions made during the implementation stage.';
+                break;
+            case 'finalization':
+                description = 'Decisions made during the finalization stage.';
+                break;
+            default:
+                description = '';
+        }
+
+        return (
+            <div className="custom-tooltip pie-tooltip">
+                <p className="label">{`${value}% of decisions are in ${name}`}</p>
+                <p className="desc">{description}</p>
+            </div>
+        );
+    }
+
+    return null;
+};
+
 
 class DecisionCategories extends PureComponent {
     state = {
@@ -365,7 +465,7 @@ class DecisionCategories extends PureComponent {
                                     <Cell key={`cell-${index}`} fill={DEC_CAT_COLORS[index % DEC_CAT_COLORS.length]}/>
                                 ))}
                             </Pie>
-                            <Tooltip/>
+                            <Tooltip content={<DecisionCategoriesTooltip />} />
                             <Legend/>
                         </PieChart>
                     </ResponsiveContainer>
