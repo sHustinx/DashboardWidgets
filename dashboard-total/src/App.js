@@ -35,7 +35,7 @@ const timeData1 = [
         name: 'March',
         'all decisions': 6,
         'biased decisions': 5,
-        'biased decisions w. negative outcome': 3
+        'biased decisions w. negative outcome': 2
     },
     {
         name: 'April',
@@ -45,72 +45,72 @@ const timeData1 = [
     },
     {
         name: 'May',
-        'all decisions': 5,
-        'biased decisions': 5,
+        'all decisions': 7,
+        'biased decisions': 4,
         'biased decisions w. negative outcome': 2
     },
     {
         name: 'June',
         'all decisions': 6,
-        'biased decisions': 5,
-        'biased decisions w. negative outcome': 0
+        'biased decisions': 3,
+        'biased decisions w. negative outcome': 1
     },
     {
         name: 'July',
         'all decisions': 7,
-        'biased decisions': 4,
-        'biased decisions w. negative outcome': 2
+        'biased decisions': 2,
+        'biased decisions w. negative outcome': 1
     },
 ];
 const timeData2 = [
     {
         name: 'January',
-        'all decisions': 7,
-        'biased decisions': 1,
+        'all decisions': 4,
+        'biased decisions': 2,
         'biased decisions w. negative outcome': 1
     },
     {
         name: 'February',
-        'all decisions': 6,
-        'biased decisions': 5,
-        'biased decisions w. negative outcome': 4
-    },
-    {
-        name: 'March',
-        'all decisions': 6,
-        'biased decisions': 5,
-        'biased decisions w. negative outcome': 3
-    },
-    {
-        name: 'April',
-        'all decisions': 7,
-        'biased decisions': 6,
-        'biased decisions w. negative outcome': 5
-    },
-    {
-        name: 'May',
-        'all decisions': 5,
-        'biased decisions': 5,
+        'all decisions': 3,
+        'biased decisions': 3,
         'biased decisions w. negative outcome': 2
     },
     {
+        name: 'March',
+        'all decisions': 3,
+        'biased decisions': 2,
+        'biased decisions w. negative outcome': 1
+    },
+    {
+        name: 'April',
+        'all decisions': 4,
+        'biased decisions': 3,
+        'biased decisions w. negative outcome': 2
+    },
+    {
+        name: 'May',
+        'all decisions': 4,
+        'biased decisions': 2,
+        'biased decisions w. negative outcome': 1
+    },
+    {
         name: 'June',
-        'all decisions': 6,
-        'biased decisions': 5,
+        'all decisions': 3,
+        'biased decisions': 1,
         'biased decisions w. negative outcome': 0
     },
     {
         name: 'July',
-        'all decisions': 7,
-        'biased decisions': 4,
-        'biased decisions w. negative outcome': 2
+        'all decisions': 4,
+        'biased decisions': 1,
+        'biased decisions w. negative outcome': 0
     },
 ];
 
 const outcomeData = [
-    {name: 'undecided', value: 60},
-    {name: 'negative', value: 20},
-    {name: 'positive', value: 20},
+    {name: 'undecided', value: 10},
+    {name: 'negative', value: 56},
+    {name: 'positive', value: 34},
 ];
 
 const reconsideredData = [
@@ -120,15 +120,16 @@ const reconsideredData = [
 ];
 
 const decCategorizedData1 = [
-    {name: 'finance', value: 60},
-    {name: 'tech', value: 15},
-    {name: 'marketing', value: 25},
+    {name: 'tech', value: 60},
+    {name: 'finance', value: 15},
+    {name: 'marketing', value: 20},
+    {name: 'support', value: 5},
 ];
 
 const decCategorizedData2 = [
-    {name: 'planning', value: 40},
-    {name: 'implementation', value: 30},
-    {name: 'finalization', value: 30},
+    {name: 'implementation', value: 70},
+    {name: 'planning', value: 20},
+    {name: 'finalization', value: 10},
 ];
 
 
@@ -136,7 +137,7 @@ const biases = [
     {
         title: 'Risk Seeking Behaviour',
         whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
-        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. For more info, click here.',
+        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. ',
         example: {
             optionOne: {
                 title: 'OPTION ONE',
@@ -226,7 +227,7 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
 
 const OUTCOME_COLORS = ['#4b4c57', '#e04d44', '#00a964'];
 
-const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#e46978'];
+const DEC_CAT_COLORS = ['#30577d', '#fbaa3e', '#41968f', '#e46978'];
 
 const RECONSIDERED_COLORS = ['#224364', '#497c98', '#79aabe'];
 
@@ -241,7 +242,7 @@ const ImpactStats = () => {
             <div className="t-t-left header">
                 <h3 className="">Average financial <br/>impact</h3>
                 <InfoButton title="What is this?"
-                            tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                            tooltip={"This is the average financial impact (how much gain or loss) of biased decisions in the past year."}/>
             </div>
             <div className="align-center">
                 <p className="big-num">-7.5k €</p>
@@ -257,11 +258,11 @@ const AvgBias = () => {
             <div className="t-t-left header">
                 <h3 className="">Average bias <br/>count</h3>
                 <InfoButton title="What is this?"
-                            tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                            tooltip={"This is the average amount of biased decisions per month in the past year."}/>
             </div>
 
             <div className="align-center">
-                <p className="big-num">5</p>
+                <p className="big-num">4</p>
                 <p className="bn-descr text-grey">biased decisions per month</p>
             </div>
         </div>
@@ -317,7 +318,7 @@ class TimeLine extends PureComponent {
                             </select>
                         </div>
                         <InfoButton title="What is this?"
-                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                                    tooltip={"This is timeline overview of all project decisions made in the past year, how many of those were biased, and how many of the biased decisions had negative consequences."}/>
                     </div>
                 </div>
 
@@ -351,13 +352,13 @@ const OutcomeTooltip = ({active, payload}) => {
 
         switch (name) {
             case 'undecided':
-                description = 'These decisions are still pending.';
+                description = 'These decisions are still pending and have no registered outcome yet.';
                 break;
             case 'negative':
-                description = 'This includes financial- and time-related consequences.';
+                description = 'These biased decisions had negative consequences. This includes financial- and time-related losses or a project failure.';
                 break;
             case 'positive':
-                description = 'These decisions led to successful outcomes.';
+                description = 'These biased decisions had successful project outcomes.';
                 break;
             default:
                 description = '';
@@ -365,7 +366,7 @@ const OutcomeTooltip = ({active, payload}) => {
 
         return (
             <div className="custom-tooltip pie-tooltip">
-                <p className="label">{`${value}% of biased decisions lead to a ${name} outcome`}</p>
+                <p className="label">{`${value}% of biased decisions have a ${name} outcome`}</p>
                 <p className="desc">{description}</p>
             </div>
         );
@@ -412,13 +413,13 @@ const ReconsideredTooltip = ({active, payload}) => {
 
         switch (name) {
             case 'not reconsidered':
-                description = 'Decisions that were not reconsidered.';
+                description = 'Decisions that were not reconsidered after receiving feedback on possible biases.';
                 break;
             case 'reconsidered and not changed':
-                description = 'Decisions that were reconsidered but not changed.';
+                description = 'Decisions that were reconsidered but not changed after receiving feedback on possible biases.';
                 break;
             case 'reconsidered and changed':
-                description = 'Decisions that were reconsidered and changed.';
+                description = 'Decisions that were reconsidered and changed after receiving feedback on possible biases.';
                 break;
             default:
                 description = '';
@@ -478,22 +479,25 @@ const DecisionCategoriesTooltip = ({active, payload}) => {
 
         switch (name) {
             case 'finance':
-                description = 'Decisions related to financial aspects.';
+                description = 'Biased decisions in the financial domain.';
                 break;
             case 'tech':
-                description = 'Decisions related to technology.';
+                description = 'Biased decisions in the technology domain.';
                 break;
             case 'marketing':
-                description = 'Decisions related to marketing.';
+                description = 'Biased decisions in the marketing domain.';
+                break;
+            case 'support':
+                description = 'Biased decisions in the support domain.';
                 break;
             case 'planning':
-                description = 'Decisions made during the planning stage.';
+                description = 'Decisions made during the planning and design stage.';
                 break;
             case 'implementation':
-                description = 'Decisions made during the implementation stage.';
+                description = 'Decisions made during the implementation and execution stage.';
                 break;
             case 'finalization':
-                description = 'Decisions made during the finalization stage.';
+                description = 'Decisions made during the final project stage.';
                 break;
             default:
                 description = '';
@@ -501,7 +505,7 @@ const DecisionCategoriesTooltip = ({active, payload}) => {
 
         return (
             <div className="custom-tooltip pie-tooltip">
-                <p className="label">{`${value}% of decisions are in ${name}`}</p>
+                <p className="label">{`${value}% of biased decisions are in ${name}`}</p>
                 <p className="desc">{description}</p>
             </div>
         );
@@ -800,7 +804,7 @@ const App = () => {
                     <div className="header">
                         <h2>Detail view: Biased project decisions</h2>
                         <InfoButton title="What is this?"
-                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                                    tooltip={"This is a detailed overview of decisions that were flagged as biased, their outcome, and the reasoning for the choice made."}/>
                     </div>
 
                     <ProjectList/>
@@ -816,7 +820,7 @@ const App = () => {
                     <div className="header">
                         <h2>Outcome of <br/>biased decisions</h2>
                         <InfoButton title="What is this?"
-                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                                    tooltip={"This is an infographic showing the percentage of biased decisions that had a positive or negative outcome, or that have no registered final outcome yet."}/>
                     </div>
 
                     <Outcome/>
@@ -825,7 +829,7 @@ const App = () => {
                     <div className="header">
                         <h2>Decisions reconsidered</h2>
                         <InfoButton title="What is this?"
-                                    tooltip={"This is an info box with brief explanations about the most common risk-related biases you might encounter in project management."}/>
+                                    tooltip={"This is an infographic showing the percentage of biased decisions that were reconsidered and/or changed after receiving a warning about possible biases."}/>
                     </div>
                     <Reconsidered/>
                 </div>
