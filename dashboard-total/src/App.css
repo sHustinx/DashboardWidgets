@@ -226,7 +226,7 @@ body {
 }
 
 .section {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .section h3 {
@@ -385,7 +385,7 @@ body {
     color: #535353;
     height: 100%;
     align-content: stretch;
-    font-size: 1.4vh;
+    font-size: 1.25vh;
 }
 
 .info-box-container .content {

@@ -137,7 +137,7 @@ const biases = [
     {
         title: 'Risk Seeking Behaviour',
         whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
-        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. ',
+        howToPrevent: 'Use structured decision-making processes that weigh potential risks against rewards objectively. Use introspection and consider all options of a problem thoroughly before finalizing a decision. ',
         example: {
             optionOne: {
                 title: 'OPTION ONE',
@@ -157,27 +157,89 @@ const biases = [
         }
     },
     {
-        title: 'Risk Seeking Behaviour 2',
-        whatIsIt: 'Risk-seeking refers to an individual who is willing to accept greater economic uncertainty in exchange for the potential of higher returns.',
-        howToPrevent: 'The main strategy to avoid risk-seeking behaviour is introspection and re-considering one\'s decisions, as well as considering all options of a problem thoroughly. For more info, click here.',
-        example: {
-            optionOne: {
-                title: 'OPTION ONE',
-                details: [
-                    '50% chance to get 100€',
-                    '50% chance to get nothing'
+        "title": "Status Quo Bias",
+        "whatIsIt": "Status quo bias is the preference of maintaining the current state over change, even when evidence indicates that change would be beneficial. ",
+        "howToPrevent": "Encourage openness to change and challenge the assumptions underlying the status quo. Consider carefully whether alternative options might be more beneficial or promising than the current state.",
+        "example": {
+            "optionOne": {
+                "title": "Option One",
+                "details": [
+                    "Continuing with a project despite significant setbacks."
                 ],
-                description: 'Risk-seeking decision makers tend to prefer this option, although it is financially irrational.'
+                "description": "Status quo bias might lead decision-makers to maintain current strategies despite clear evidence of their ineffectiveness."
             },
-            optionTwo: {
-                title: 'OPTION TWO',
-                details: [
-                    '100% chance of 50€'
+            "optionTwo": {
+                "title": "Option Two",
+                "details": [
+                    "Implementing a new strategy based on market research and analysis."
                 ],
-                description: 'Although this is the financially rational choice, this option is avoided by risk-seeking individuals.'
+                "description": "A more proactive approach would involve adapting to changing circumstances to achieve better outcomes."
             }
         }
-    }
+    },
+    {
+        "title": "Sunk-Cost Fallacy",
+        "whatIsIt": "The sunk-cost fallacy is a cognitive bias where individuals justify increased investment in a decision based on high previous investments, despite new evidence suggesting that the cost outweighs the benefits.",
+        "howToPrevent": "Recognize that past investments are sunk costs and should not influence future decisions. Regularly reassess projects based on current circumstances rather than past investments.",
+        "example": {
+            "optionOne": {
+                "title": "Option One",
+                "details": [
+                    "continuing a troubled project because of previous investments"
+                ],
+                "description": "A decision influenced by sunk-cost fallacy might continue investing in a failing project hoping to recover past investments."
+            },
+            "optionTwo": {
+                "title": "Option Two",
+                "details": [
+                    "stopping a project regardless of previous investments if odds are unfavourable"
+                ],
+                "description": "A more rational decision would cut losses early and invest in more promising opportunities."
+            }
+        }
+    },
+    {
+        "title": "Loss Aversion",
+        "whatIsIt": "Loss aversion is a cognitive bias where individuals strongly prefer avoiding losses to acquiring gains of the same value. This bias is often combined with regret aversion, where decision-makers tend to prefer decisions that minimize the threat of future regrets.",
+        "howToPrevent": "Separate emotions from decision-making by focusing on objective criteria, such as values. Be mindful of leading terms that can evoke strong emotions, such as 'loss' or 'failure'. For example, in a scenario where a disease is expected to kill 600 people, people largely prefer options that are worded positively (see below). ",
+        "example": {
+            "optionOne": {
+                "title": "Option One",
+                "details": [
+                    "If Program A is adopted, 200 people will be saved."
+                ],
+                "description": "This option is numerically identical to option B, yet largely preferred by a majority of people due to a more positive framing."
+            },
+            "optionTwo": {
+                "title": "Option Two",
+                "details": [
+                    "If Program B is adopted 400 people will die."
+                ],
+                "description": "Although this option is numerically identical, it evokes strong loss-aversion and is therefore avoided by the majority of decision makers."
+            }
+        }
+    },
+    {
+        "title": "Over-Optimism",
+        "whatIsIt": "Over-optimism is a cognitive bias where individuals show the tendency to expect positive outcomes and underestimate risks, leading to irrational decisions despite ongoing setbacks or negative indicators.",
+        "howToPrevent": "Encourage realistic assessments and challenge existing assumptions. Implement robust risk assessment frameworks to objectively evaluate project feasibility.",
+        "example": {
+            "optionOne": {
+                "title": "Option One",
+                "details": [
+                    "Risky investment promising high returns."
+                ],
+                "description": "Over-optimistic decision-makers might pursue this option without fully assessing potential risks and downsides."
+            },
+            "optionTwo": {
+                "title": "Option Two",
+                "details": [
+                    "Safer investment with moderate returns."
+                ],
+                "description": "A more balanced decision would consider both potential gains and risks realistically."
+            }
+        }
+    },
 ];
 
 
@@ -217,7 +279,7 @@ const projectData = [
         project: "312f",
         decision: "Stop project",
         details: "Despite significant progress, the project was halted due to external market changes.",
-        suspectedBias: ["loss aversion", "regret aversion"],
+        suspectedBias: ["loss aversion"],
         outcome: "negative",
         comment: "We decided to stop the project due to fears of further loss amidst unpredictable market trends.",
         reportLink: "#",
@@ -232,7 +294,7 @@ const projectData = [
         project: "456h",
         decision: "Continue project",
         details: "The project has consistently missed deadlines and has not met quality standards.",
-        suspectedBias: ["confirmation bias", "status quo bias"],
+        suspectedBias: ["status quo bias"],
         outcome: "negative",
         comment: "We continued with the belief that issues would resolve over time, despite evidence suggesting otherwise.",
         reportLink: "#",
@@ -247,7 +309,7 @@ const projectData = [
         project: "579k",
         decision: "Stop project",
         details: "Initial investment did not yield the expected early results, leading to project termination.",
-        suspectedBias: ["loss aversion", "bandwagon effect"],
+        suspectedBias: ["loss aversion"],
         outcome: "neutral",
         comment: "We stopped the project prematurely because we focused too much on short-term losses and peer pressure.",
         reportLink: "#",
@@ -262,7 +324,7 @@ const projectData = [
         project: "681m",
         decision: "Continue project",
         details: "The project has encountered frequent scope changes, leading to increased complexity and costs.",
-        suspectedBias: ["sunk-cost fallacy", "optimism bias"],
+        suspectedBias: ["sunk-cost fallacy", "over-optimism"],
         outcome: "negative",
         comment: "We decided to continue the project, hoping that additional funding and time would eventually lead to success.",
         reportLink: "#",
@@ -292,7 +354,7 @@ const projectData = [
         project: "853q",
         decision: "Continue project",
         details: "The project was continued despite financial and scheduling challenges.",
-        suspectedBias: ["confirmation bias", "sunk-cost fallacy"],
+        suspectedBias: ["status quo bias", "sunk-cost fallacy"],
         outcome: "positive",
         comment: "We believed in the project's success despite negative indicators and continued to invest.",
         reportLink: "#",
@@ -305,11 +367,25 @@ const projectData = [
 ];
 
 
+// const biasInfo = {
+//     "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias that causes people to continue an endeavor, or continue consuming or pursuing an option, if they’ve invested time or money or some resource into it, even when it’s clear that it’s no longer viable.",
+//     "risk-seeking behaviour": "Risk-seeking behavior refers to the tendency to engage in behaviors that have the potential to be harmful or dangerous, yet at the same time provide the opportunity for some kind of outcome that can be perceived as positive.",
+//     "loss aversion": "Loss aversion is a cognitive bias that describes why, for individuals, the pain of losing is psychologically twice as powerful as the pleasure of gaining."
+// };
+
 const biasInfo = {
-    "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias that causes people to continue an endeavor, or continue consuming or pursuing an option, if they’ve invested time or money or some resource into it, even when it’s clear that it’s no longer viable.",
-    "risk-seeking behaviour": "Risk-seeking behavior refers to the tendency to engage in behaviors that have the potential to be harmful or dangerous, yet at the same time provide the opportunity for some kind of outcome that can be perceived as positive.",
-    "loss aversion": "Loss aversion is a cognitive bias that describes why, for individuals, the pain of losing is psychologically twice as powerful as the pleasure of gaining."
-};
+    "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias where individuals justify increased investment in a decision based on high previous investments, despite new evidence suggesting that the cost outweighs the benefits.",
+
+    "over-optimism": "Over-optimism is a cognitive bias where individuals show the tendency to expect positive outcomes and underestimate risks, leading to irrational decisions despite ongoing setbacks or negative indicators.",
+
+    "risk-seeking behaviour": "Risk-seeking behavior refers to the tendency to pursue actions with uncertain outcomes that offer potential rewards, even when the likelihood of success is low and risks are high.",
+
+    "loss aversion": "Loss aversion is a cognitive bias where individuals strongly prefer avoiding losses to acquiring gains of the same value. This is often combined with regret aversion, where decision makers tend to prefer decisions that minimize the threat of future regrets.",
+
+    "status quo bias": "Status quo bias is the preference for the current state of affairs over change, even when evidence indicates that change would be beneficial. This bias can lead to escalated commitment in projects despite evidence of failure.",
+
+  };
+
 
 
 const RADIAN = Math.PI / 180;
@@ -870,6 +946,7 @@ const BiasDetail = ({bias, onClose}) => {
                 <h2>Bias Information</h2>
                 <p><strong>Bias:</strong> {bias}</p>
                 <p>{biasInfo[bias]}</p>
+                <p>For more details, see the info-box at the bottom right of the screen.</p>
             </div>
         </div>
     );
