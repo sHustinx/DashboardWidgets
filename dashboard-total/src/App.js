@@ -443,7 +443,7 @@ const AvgBias = () => {
 
             <div className="align-center">
                 <p className="big-num">4</p>
-                <p className="bn-descr text-grey">biased decisions per month</p>
+                <p className="bn-descr text-grey">biased decisions a month</p>
             </div>
         </div>
     );
@@ -568,8 +568,7 @@ class Outcome extends PureComponent {
                             cy="50%"
                             labelLine={false}
                             label={renderCustomizedLabel}
-                            outerRadius={150}
-                            innerRadius={60}
+                            innerRadius={'30%'}
                             fill="#8884d8"
                             dataKey="value"
                         >
@@ -633,8 +632,7 @@ class Reconsidered extends PureComponent {
                             cy="50%"
                             labelLine={false}
                             label={renderCustomizedLabel}
-                            outerRadius={150}
-                            innerRadius={60}
+                            innerRadius={'30%'}
                             fill="#8884d8"
                             dataKey="value"
                         >
@@ -730,8 +728,7 @@ class DecisionCategories extends PureComponent {
                                 cy="50%"
                                 labelLine={false}
                                 label={renderCustomizedLabel}
-                                outerRadius={150}
-                                innerRadius={60}
+                                innerRadius={'30%'}
                                 fill="#8884d8"
                                 dataKey="value"
                             >
@@ -855,6 +852,13 @@ const ProjectList = () => {
     };
 
     return (
+        <div className={"detailview-container"}>
+            <div className="header t-t-left">
+                <h2>Detail view: Biased project decisions</h2>
+                <InfoButton title="What is this?"
+                            tooltip={"This is a detailed overview of decisions that were flagged as biased, their outcome, and the reasoning for the choice made."}/>
+            </div>
+
         <div className="project-list-container">
             <div className="project-list-header">
                 <div className="project-list-row">
@@ -892,6 +896,7 @@ const ProjectList = () => {
             {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose}/>}
             {selectedBias && <BiasDetail bias={selectedBias} onClose={handleClose}/>}
         </div>
+        </div>
     );
 };
 const InfoTag = ({text, tooltipText, className}) => {
@@ -904,7 +909,7 @@ const InfoTag = ({text, tooltipText, className}) => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <span className="glance-tooltip-text">{text}</span>
-            {isHovered && <div className="glance-tooltip-content">{tooltipText}</div>}
+            {/*{isHovered && <div className="glance-tooltip-content">{tooltipText}</div>}*/}
         </div>
     );
 };
@@ -983,11 +988,6 @@ const App = () => {
                     <TimeLine/>
                 </div>
                 <div className="item detailview">
-                    <div className="header">
-                        <h2>Detail view: Biased project decisions</h2>
-                        <InfoButton title="What is this?"
-                                    tooltip={"This is a detailed overview of decisions that were flagged as biased, their outcome, and the reasoning for the choice made."}/>
-                    </div>
 
                     <ProjectList/>
                 </div>

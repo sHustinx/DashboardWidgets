@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: "Roboto", sans-serif;
+    font-size: 1.5vh;
 }
 
 .item {
@@ -177,7 +178,7 @@ body {
 
 
 .big-num {
-    font-size: xxx-large;
+    font-size: 5vh;
     font-weight: bolder;
     color: #767677;
     margin: 0;
@@ -385,7 +386,7 @@ body {
     color: #535353;
     height: 100%;
     align-content: stretch;
-    font-size: 1.25vh;
+    overflow-y: scroll;
 }
 
 .info-box-container .content {
@@ -530,8 +531,6 @@ a {
 }
 
 .project-list {
-    height: 350px;
-    overflow-y: scroll;
     color: #838383;
 }
 
@@ -606,6 +605,11 @@ a {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.detailview-container{
+    height: 95%;
+    overflow-y: scroll;
 }
 
 /* detailview end */
