@@ -183,23 +183,127 @@ const biases = [
 
 const projectData = [
     {
-        date: "18-12-2023",
+        date: "15-01-2024",
         project: "137b",
-        decision: "Continue project 137b",
-        details: "Decided to continue 137b after a long delay (6 mo.+)",
+        decision: "Continue project",
+        details: "The continued project is currently behind schedule and over budget.",
         suspectedBias: ["sunk-cost fallacy", "risk-seeking behaviour"],
         outcome: "negative",
-        comment: "high previous financial- and time-related investments",
+        comment: "We've already invested a lot of time and money into this project, so we decided to continue despite the issues.",
         reportLink: "#",
-        description: "This project integrates the current CMS system with the new interface of Company 123 for their customer service.",
-        context: "The project is currently in budget (1k € of 45k budget left), but has exceeded the allocated time-frame by 3 months (total: 3 mo. delay). The involved stakeholders (financial services and Company 123) have asked for a re-evaluation of the project.",
-        milestones: ["M1", "M2", "M3", "M4"],
+        description: "This project integrates the current CMS system with a new interface for the customer service website.",
+        context: "The project was continued, but has exceeded the allocated time-frame by 3 months (total: 3 mo. delay) and the given budget by 20k€. ",
+        totalMilestones: 6,
+        currentMilestone: 3,
+        tags: ["tech-domain", "negative outcome", "over-time", "over-budget", "high-priority", "team 39b"],
+    },
+    {
+        date: "20-06-2024",
+        project: "248c",
+        decision: "Continue project",
+        details: "The project has faced several technical challenges, leading to delays and increased costs.",
+        suspectedBias: ["sunk-cost fallacy", "over-optimism"],
+        outcome: "negative",
+        comment: "We believed that additional resources would help overcome the current issues, even though we were facing ongoing setbacks.",
+        reportLink: "#",
+        description: "This project involves developing a new mobile app for the company's e-commerce platform.",
+        context: "The project continued, resulting in a further 2-month delay and additional costs of 15k€, without significant progress.",
+        totalMilestones: 5,
+        currentMilestone: 2,
+        tags: ["tech-domain", "negative outcome", "over-time", "over-budget", "high-priority", "team 52d"]
+    },
+    {
+        date: "10-03-2024",
+        project: "312f",
+        decision: "Stop project",
+        details: "Despite significant progress, the project was halted due to external market changes.",
+        suspectedBias: ["loss aversion", "regret aversion"],
+        outcome: "negative",
+        comment: "We decided to stop the project due to fears of further loss amidst unpredictable market trends.",
+        reportLink: "#",
+        description: "This project aimed at launching a new product line targeting young adults.",
+        context: "The project was stopped, leading to an immediate write-off of 40k€ invested so far. Market analysis later showed that the product could have been successful.",
+        totalMilestones: 4,
+        currentMilestone: 3,
+        tags: ["market-analysis", "negative outcome", "potential success", "high-priority", "team 14a"]
+    },
+    {
+        date: "25-03-2024",
+        project: "456h",
+        decision: "Continue project",
+        details: "The project has consistently missed deadlines and has not met quality standards.",
+        suspectedBias: ["confirmation bias", "status quo bias"],
+        outcome: "negative",
+        comment: "We continued with the belief that issues would resolve over time, despite evidence suggesting otherwise.",
+        reportLink: "#",
+        description: "This project involves upgrading the company's internal HR system.",
+        context: "The project continued, but ultimately failed to deliver, resulting in a total budget overrun of 30k€ and a delay of 5 months.",
+        totalMilestones: 7,
+        currentMilestone: 4,
+        tags: ["internal-project", "negative outcome", "over-time", "over-budget", "medium-priority", "team 22c"]
+    },
+    {
+        date: "05-04-2024",
+        project: "579k",
+        decision: "Stop project",
+        details: "Initial investment did not yield the expected early results, leading to project termination.",
+        suspectedBias: ["loss aversion", "bandwagon effect"],
+        outcome: "neutral",
+        comment: "We stopped the project prematurely because we focused too much on short-term losses and peer pressure.",
+        reportLink: "#",
+        description: "This project was focused on developing an AI-driven customer support chatbot.",
+        context: "The project was stopped after an investment of 25k€, even though projected long-term benefits were high. The company later regretted this decision as competitors successfully launched similar products.",
+        totalMilestones: 5,
+        currentMilestone: 2,
+        tags: ["AI", "neutral outcome", "high-potential", "medium-priority", "team 33e"]
+    },
+    {
+        date: "20-05-2024",
+        project: "681m",
+        decision: "Continue project",
+        details: "The project has encountered frequent scope changes, leading to increased complexity and costs.",
+        suspectedBias: ["sunk-cost fallacy", "optimism bias"],
+        outcome: "negative",
+        comment: "We decided to continue the project, hoping that additional funding and time would eventually lead to success.",
+        reportLink: "#",
+        description: "This project involves developing a new CRM system for managing customer relationships.",
+        context: "The project continued but faced ongoing challenges, resulting in an additional cost of 20k€ and a 3-month delay.",
+        totalMilestones: 6,
+        currentMilestone: 3,
+        tags: ["CRM", "negative outcome", "over-time", "over-budget", "high-priority", "team 47b"]
+    },
+    {
+        date: "30-02-2024",
+        project: "792p",
+        decision: "Continue project",
+        details: "The project had initial budget overruns and timeline delays but showed potential for high returns.",
+        suspectedBias: ["sunk-cost fallacy", "over-optimism"],
+        outcome: "positive",
+        comment: "Despite the setbacks, we decided to continue the project due to our significant prior investments and belief in potential high returns.",
+        reportLink: "#",
+        description: "This project aimed at developing a new cloud-based collaboration tool.",
+        context: "The project faced a 20k€ budget overrun and a 2-month delay, but ultimately succeeded, generating 120k€ in revenue.",
         totalMilestones: 6,
         currentMilestone: 4,
-        tags: ["tech-domain", "undecided", "over-time", "over-budget", "high-priority", "team 39b"],
+        tags: ["cloud-technology", "positive outcome", "over-budget", "over-time", "high-priority", "team 19b"]
     },
-
+    {
+        date: "15-04-2024",
+        project: "853q",
+        decision: "Continue project",
+        details: "The project was continued despite financial and scheduling challenges.",
+        suspectedBias: ["confirmation bias", "sunk-cost fallacy"],
+        outcome: "positive",
+        comment: "We believed in the project's success despite negative indicators and continued to invest.",
+        reportLink: "#",
+        description: "This project involves creating a new data analytics platform for enterprise clients.",
+        context: "The project exceeded its budget by 30k€ and was delayed by 3 months but eventually delivered a successful product, leading to contracts worth 200k€.",
+        totalMilestones: 5,
+        currentMilestone: 3,
+        tags: ["data-analytics", "positive outcome", "over-budget", "over-time", "high-priority", "team 28d"]
+    }
 ];
+
 
 const biasInfo = {
     "sunk-cost fallacy": "The sunk-cost fallacy is a cognitive bias that causes people to continue an endeavor, or continue consuming or pursuing an option, if they’ve invested time or money or some resource into it, even when it’s clear that it’s no longer viable.",
@@ -639,12 +743,15 @@ const InfoBox = () => {
         </div>
     );
 };
-
 const ProjectList = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [selectedBias, setSelectedBias] = useState(null);
-    const [sortOrder, setSortOrder] = useState('asc');
-    const [sortedData, setSortedData] = useState(projectData);
+    const [sortOrder, setSortOrder] = useState('desc'); // Initialize sortOrder to 'desc'
+    const [sortedData, setSortedData] = useState([...projectData].sort((a, b) => { // Sort data in descending order by default
+        const dateA = new Date(a.date.split('-').reverse().join('-'));
+        const dateB = new Date(b.date.split('-').reverse().join('-'));
+        return dateB - dateA;
+    }));
 
     const handleClick = (project) => {
         setSelectedProject(project);
@@ -661,15 +768,15 @@ const ProjectList = () => {
     };
 
     const handleSort = () => {
+        const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
         const sorted = [...sortedData].sort((a, b) => {
             const dateA = new Date(a.date.split('-').reverse().join('-'));
             const dateB = new Date(b.date.split('-').reverse().join('-'));
-            return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+            return newSortOrder === 'asc' ? dateA - dateB : dateB - dateA;
         });
         setSortedData(sorted);
-        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        setSortOrder(newSortOrder);
     };
-
 
     return (
         <div className="project-list-container">
@@ -681,7 +788,7 @@ const ProjectList = () => {
                     <div className="project-list-cell">Decision</div>
                     <div className="project-list-cell">Suspected Bias</div>
                     <div className="project-list-cell ">Outcome</div>
-                    <div className="project-list-cell bigger">Comment</div>
+                    <div className="project-list-cell bigger">Description</div>
                 </div>
             </div>
             <div className="project-list">
@@ -694,14 +801,14 @@ const ProjectList = () => {
                             <div className="project-list-cell">
                                 {project.suspectedBias.map((bias, idx) => (
                                     <div key={idx}>
-                                        <a href={project.reportLink} onClick={(e) => handleBiasClick(bias, e)}>{bias}</a>
+                                        <a href={project.reportLink} onClick={(e) => handleBiasClick(bias, e)}>{bias}</a>;
                                     </div>
                                 ))}
                             </div>
                             <div className="project-list-cell ">{project.outcome} <br/>(<a href={project.reportLink}>see
                                 report</a>)
                             </div>
-                            <div className="project-list-cell bigger">{project.comment}</div>
+                            <div className="project-list-cell bigger">{project.details}</div>
                         </div>
                     </div>
                 ))}
@@ -711,7 +818,6 @@ const ProjectList = () => {
         </div>
     );
 };
-
 const InfoTag = ({text, tooltipText, className}) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -741,8 +847,7 @@ const ProjectDetail = ({ project, onClose }) => {
                 <p><strong>Suspected Biases:</strong> {project.suspectedBias.join(", ")}</p>
                 <br/>
                 <p><strong>Project Description:</strong> {project.description}</p>
-                <p>{project.context}</p>
-                <p>Milestones ({project.currentMilestone}/{project.totalMilestones} completed)</p>
+                <p>{project.context} Of the set milestones, {project.currentMilestone} of {project.totalMilestones} are completed.</p>
                 <br/>
                 <div className="project-at-a-glance">
                     <p><strong>Project at a glance:</strong></p>
