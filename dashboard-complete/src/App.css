@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: "Roboto", sans-serif;
     font-size: 1.5vh;
+    background-color: #f4f5fa;
 }
 
 .item {
@@ -751,3 +752,16 @@ select:focus {
 
 
 /* at a glance tooltips end */
+
+@media only screen and (max-height: 1000px) {
+
+    .container {
+        height: 110vh;
+        width: 96vw;
+    }
+
+    .screenfit {
+        height: fit-content;
+        width: fit-content;
+    }
+}

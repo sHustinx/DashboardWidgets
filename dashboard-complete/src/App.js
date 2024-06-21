@@ -683,7 +683,7 @@ const DecisionCategoriesTooltip = ({active, payload}) => {
 
         return (
             <div className="custom-tooltip pie-tooltip">
-                <p className="label">{`${value}% of biased decisions are in ${name}`}</p>
+                <p className="label">{`${value}% of biased decisions occur during ${name}`}</p>
                 <p className="desc">{description}</p>
             </div>
         );
