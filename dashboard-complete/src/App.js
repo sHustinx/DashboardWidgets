@@ -84,7 +84,7 @@ const timeData2 = [
     {
         name: 'April',
         'all decisions': 4,
-        'biased decisions': 3,
+        'biased decisions': 2,
         'biased decisions w. negative outcome': 2
     },
     {
@@ -101,7 +101,7 @@ const timeData2 = [
     },
     {
         name: 'July',
-        'all decisions': 4,
+        'all decisions': 2,
         'biased decisions': 1,
         'biased decisions w. negative outcome': 0
     },
@@ -311,7 +311,7 @@ const projectData = [
         details: "Initial investment did not yield the expected early results, leading to project termination.",
         suspectedBias: ["loss aversion"],
         outcome: "neutral",
-        comment: "We stopped the project prematurely because we focused too much on short-term losses and peer pressure.",
+        comment: "We stopped the project prematurely because we saw too many short-term losses.",
         reportLink: "#",
         description: "This project was focused on developing an AI-driven customer support chatbot.",
         context: "The project was stopped after an investment of 25k€, even though projected long-term benefits were high. The company later regretted this decision as competitors successfully launched similar products.",
@@ -420,13 +420,13 @@ const ImpactStats = () => {
     return (
         <div>
             <div className="t-t-left header">
-                <h3 className="">Average financial <br/>impact</h3>
+                <h3 className="">Avg. financial <br/>impact</h3>
                 <InfoButton title="What is this?"
                             tooltip={"This is the average financial impact (how much gain or loss) of biased decisions in the past year."}/>
             </div>
             <div className="align-center">
                 <p className="big-num">-7.5k €</p>
-                <p className="bn-descr text-grey">per biased decisions</p>
+                <p className="bn-descr text-grey">per biased <br/>decision</p>
             </div>
         </div>
     );
@@ -436,7 +436,7 @@ const AvgBias = () => {
     return (
         <div>
             <div className="t-t-left header">
-                <h3 className="">Average bias <br/>count</h3>
+                <h3 className="">Avg. bias <br/>count</h3>
                 <InfoButton title="What is this?"
                             tooltip={"This is the average amount of biased decisions per month in the past year."}/>
             </div>
@@ -921,14 +921,13 @@ const ProjectDetail = ({ project, onClose }) => {
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
                 <h2>Decision {project.project} (Tech Integration Project)</h2>
+                <p><strong>Project Description:</strong><i> {project.description} </i></p>
+                <p><i>{project.context} Of the set milestones, {project.currentMilestone} of {project.totalMilestones} are completed.</i></p>
+                <br/>
                 <p><strong>Date:</strong> {project.date}</p>
-                <p><strong>Decision:</strong> {project.decision}</p>
-                <p><strong>Reasoning:</strong> {project.comment}</p>
+                <p><strong>Decision:</strong> {project.decision} ["<i>{project.comment}</i>"]</p>
                 <p><strong>Outcome:</strong> {project.outcome}: {project.details}</p>
                 <p><strong>Suspected Biases:</strong> {project.suspectedBias.join(", ")}</p>
-                <br/>
-                <p><strong>Project Description:</strong> {project.description}</p>
-                <p>{project.context} Of the set milestones, {project.currentMilestone} of {project.totalMilestones} are completed.</p>
                 <br/>
                 <div className="project-at-a-glance">
                     <p><strong>Project at a glance:</strong></p>

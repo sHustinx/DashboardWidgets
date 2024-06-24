@@ -489,4 +489,8 @@ table{
   body{
     font-size: 2.8vh;
   }
+
+  .tags{
+    justify-content: flex-start;
+  }
 }

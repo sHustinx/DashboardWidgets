@@ -716,7 +716,6 @@ select:focus {
 .glance-tooltip-container {
     position: relative;
     display: inline-block;
-    cursor: pointer;
 }
 
 
@@ -768,5 +767,25 @@ select:focus {
     .data-context-text {
 
         padding-left: 0;
+    }
+
+    body{
+        font-size: 1.7vh;
+    }
+
+    .button-spacer {
+        margin-left: 0;
+    }
+
+    .data-context-text {
+        height: 1.8vh;
+        font-size: 1.8vh;
+        margin-top: 0;
+    }
+
+
+    .modal-content {
+        font-size: 2vh;
+        margin: 5% auto;
     }
 }
