@@ -207,7 +207,6 @@ h2 {
   top: 125%; /* Position below the info icon */
   left: 50%;
   margin-left: -100px;
-  opacity: 0.9;
 }
 
 .tooltip::after {
@@ -261,7 +260,6 @@ h2 {
   bottom: 125%; /* Position above the text */
   left: 50%;
   margin-left: -75px;
-  opacity: 0.9;
   font-weight: lighter;
 }
 
@@ -483,4 +481,12 @@ table{
 
 .bg-highlight-color .tooltip::after{
   margin-left: 50px;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  body{
+    font-size: 2.8vh;
+  }
 }

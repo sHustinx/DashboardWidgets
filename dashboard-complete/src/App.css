@@ -764,4 +764,9 @@ select:focus {
         height: fit-content;
         width: fit-content;
     }
+
+    .data-context-text {
+
+        padding-left: 0;
+    }
 }

@@ -38,7 +38,7 @@ function Overview() {
                 <h2>Project Description</h2>
                 <p>
                     This project develops a new mobile app, which would significantly <strong>improve the user
-                    experience</strong>, and could generate a <strong>potential revenue of 80k€.</strong> The project
+                    experience</strong>, and could generate a <strong>potential revenue of 100k€.</strong> The project
                     has <strong>faced some complications</strong> and initial user tests have indicated some <strong>performance
                     and security issues</strong> that still need addressing. The involved stakeholders <strong>have
                     asked for a re-evaluation</strong> on whether to stop or continue the project.
@@ -47,10 +47,10 @@ function Overview() {
             <div className="decision-context">
                 <h2>Decision Context</h2>
                 <p>
-                    The project is currently <strong>25k€ over budget</strong> (25k€ over budget of 50k€), and <strong>2
+                    The project is currently <strong>10k€ over budget</strong> (10k€ over budget of 40k€), and <strong>2
                     months delayed</strong> (2 months over initial 10 month timeframe). <strong>Continuing the
-                    project</strong> would involve an additional investment of 30k€ and a project extension of 2 months
-                    with an estimated 70% chance of failure and a 30% chance of success. <strong>Stopping the
+                    project</strong> would involve an additional investment of 25k€ and a project extension of 2 months
+                    with an estimated 80% chance of failure and a 20% chance of success. <strong>Stopping the
                     project</strong> would involve no additional costs or potential revenue.
                 </p>
             </div>
@@ -67,7 +67,7 @@ function Overview() {
                 <div className="tags">
                     <GlanceTooltip text="over time" tooltipText="Project is currently 2 months behind schedule"
                                    className="tag over-time"/>
-                    <GlanceTooltip text="over budget" tooltipText="Project has exceeded the budget by 15k€"
+                    <GlanceTooltip text="over budget" tooltipText="Project has exceeded the budget by 10k€"
                                    className="tag over-budget"/>
                     <GlanceTooltip text="high priority" tooltipText="Project is classified as high priority"
                                    className="tag high-priority"/>
@@ -186,7 +186,7 @@ function Decision() {
                                 <tbody>
                                 <tr>
                                     <th>costs:</th>
-                                    <td>-75k€ prev. investments</td>
+                                    <td>-50k€ prev. investments</td>
                                 </tr>
                                 <tr>
                                     <th>time:</th>
@@ -198,7 +198,7 @@ function Decision() {
                                 </tr>
                                 <tr>
                                     <th>risk-estimations:</th>
-                                    <td>100% failure, 0% success</td>
+                                    <td>100% project failure, 0% project success</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -222,7 +222,7 @@ function Decision() {
                                 <tbody>
                                 <tr>
                                     <th>costs:</th>
-                                    <td>-75k€ prev. investments and -30k€ new investments</td>
+                                    <td>-50k€ prev. investments and -25k€ new investments</td>
                                 </tr>
                                 <tr>
                                     <th>time:</th>
@@ -230,11 +230,11 @@ function Decision() {
                                 </tr>
                                 <tr>
                                     <th>revenue:</th>
-                                    <td>80k€ potential revenue</td>
+                                    <td>100k€ potential revenue</td>
                                 </tr>
                                 <tr>
                                     <th>risk-estimations:</th>
-                                    <td>70% failure, <br/>30% success</td>
+                                    <td>80% project failure, <br/>20% project success</td>
                                 </tr>
                                 </tbody>
                             </table>
