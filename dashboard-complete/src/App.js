@@ -266,7 +266,7 @@ const projectData = [
         details: "The project has faced several technical challenges, leading to delays and increased costs.",
         suspectedBias: ["sunk-cost fallacy", "over-optimism"],
         outcome: "negative",
-        comment: "We believed that additional resources would help overcome the current issues, even though we were facing ongoing setbacks.",
+        comment: "We believed that additional resources would help overcome the current issues and ongoing setbacks.",
         reportLink: "#",
         description: "This project involves developing a new mobile app for the company's e-commerce platform.",
         context: "The project continued, resulting in a further 2-month delay and additional costs of 15k€, without significant progress.",
@@ -296,7 +296,7 @@ const projectData = [
         details: "The project has consistently missed deadlines and has not met quality standards.",
         suspectedBias: ["status quo bias"],
         outcome: "negative",
-        comment: "We continued with the belief that issues would resolve over time, despite evidence suggesting otherwise.",
+        comment: "We continued with the belief that issues would resolve over time.",
         reportLink: "#",
         description: "This project involves upgrading the company's internal HR system.",
         context: "The project continued, but ultimately failed to deliver, resulting in a total budget overrun of 30k€ and a delay of 5 months.",
@@ -356,7 +356,7 @@ const projectData = [
         details: "The project was continued despite financial and scheduling challenges.",
         suspectedBias: ["status quo bias", "sunk-cost fallacy"],
         outcome: "positive",
-        comment: "We believed in the project's success despite negative indicators and continued to invest.",
+        comment: "We believed in the project's success and continued to invest.",
         reportLink: "#",
         description: "This project involves creating a new data analytics platform for enterprise clients.",
         context: "The project exceeded its budget by 30k€ and was delayed by 3 months but eventually delivered a successful product, leading to contracts worth 200k€.",
@@ -920,7 +920,7 @@ const ProjectDetail = ({ project, onClose }) => {
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
-                <h2>Decision {project.project} (Tech Integration Project)</h2>
+                <h2>Decision {project.project} </h2>
                 <p><strong>Project Description:</strong><i> {project.description} </i></p>
                 <p><i>{project.context} Of the set milestones, {project.currentMilestone} of {project.totalMilestones} are completed.</i></p>
                 <br/>
